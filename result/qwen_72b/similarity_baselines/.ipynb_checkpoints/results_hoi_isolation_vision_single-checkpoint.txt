@@ -1,0 +1,10 @@
+experiment run details:
+  dataset: hoi
+  path: /gpfs/mariana/home/envomp/bongard/big_hake/
+  similarity location: vision
+  prompt structure: single
+
+---------------------------------------
+  test split name: test_seen_obj_seen_act
+---------------------------------------
+

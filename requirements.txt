@@ -1,0 +1,13 @@
+torch==2.5.1
+torchvision==0.20.1
+scipy
+einops
+transformers==4.51.1
+datasets
+psutil
+peft
+accelerate
+scikit-learn
+timm
+matplotlib
+seaborn

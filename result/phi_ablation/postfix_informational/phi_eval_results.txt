@@ -1,0 +1,31 @@
+baselines:
+- phi_single: 73.2
+- phi_multi: 65.2
+- phi_multi_test: 53.0
+
+final_prompt_tuning (strategic, lr=0.1, batch_size=2, items=500, epochs=10, len=100): 93/100
+
+detailed_general_instruction => 53.0
+- model doesn't really understand what needs to be done. Guess was that prompt was suboptimal.
+general_instruction + specific_instruction => 479/500 => 95.8
+- prefix tuning leads to good performance. But why?
+general_instruction + naturalized_specific_instruction => 50/100 => 50.0
+- model guessed 1 single class only. The natural form of specific instruction doesn't improve results
+empty_talk + general_instruction + specific_instruction => 480/500 => 96.0
+- this effectively shifts everything to the right.
+- any positional embedding alterations the prefix introduces are made obsolete.
+general_instruction + empty_talk + specific_instruction => 479/500 => 95.8
+- this shifts the specific instruction further away from general instruction.
+- any relative positional embeddings the prefix introduces are made obsolete.
+specific_instruction + general_instruction => 428/500 => 85.6
+- this completely swaps the order of instructions, so specific instruction no longer sees the images.
+images_format + specific_instructions => 323/500 => 64.6
+- this reduces the general instruction to bare minimum of image tags and answer format
+
+What prefix tuned part isn't:
+- (relative) positional embedding alteration
+- copy of the original general instruction (general instruction is still needed)
+
+What prefix tuned part is:
+- output format enforcement (answer: <cat>, instruction: )
+- acts as an attention guide, telling the model what parts to focus on. Since results remain high after swapping order of instructions, then it can't be anything too specific, but rather an algorithm to follow and concepts to keep an eye out on.

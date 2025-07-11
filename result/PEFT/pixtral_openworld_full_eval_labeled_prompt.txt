@@ -1,0 +1,508 @@
+experiment run details:
+  dataset: openworld
+  path: /gpfs/mariana/home/envomp/bongard/
+---------------------------------------
+  test split name: test
+---------------------------------------
+
+got: cat_1</s> | expected: cat_2 | equals: False
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_1</s> | expected: cat_2 | equals: False
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: The specific instruction is: "Classify the image | expected: cat_2 | equals: SKIP
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_1</s> | expected: cat_2 | equals: False
+got: cat_1</s> | expected: cat_1 | equals: True
+got: If the image has more than 6 people, | expected: cat_2 | equals: SKIP
+got: If the image contains a group of people, it | expected: cat_1 | equals: SKIP
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: If the image contains tall grass or reeds, classify | expected: cat_1 | equals: SKIP
+got: cat_1</s> | expected: cat_2 | equals: False
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_1</s> | expected: cat_2 | equals: False
+got: If the image has people in it, it's | expected: cat_1 | equals: SKIP
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_1</s> | expected: cat_2 | equals: False
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_1</s> | expected: cat_2 | equals: False
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_1</s> | expected: cat_2 | equals: False
+got: cat_1</s> | expected: cat_1 | equals: True
+got: If the image contains a boat, it's cat | expected: cat_2 | equals: SKIP
+got: If the image contains a boat, it's cat | expected: cat_1 | equals: SKIP
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_1</s> | expected: cat_2 | equals: False
+got: cat_1</s> | expected: cat_1 | equals: True
+got: If the image contains a wheelchair symbol, classify it | expected: cat_2 | equals: SKIP
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: Is there a body of water in the image? | expected: cat_1 | equals: SKIP
+got: If the image has a dragon in it, it | expected: cat_2 | equals: SKIP
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_1</s> | expected: cat_2 | equals: False
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_1</s> | expected: cat_2 | equals: False
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: "Determine if the image contains a cat by | expected: cat_2 | equals: SKIP
+got: The specific instruction is: "If the image contains | expected: cat_1 | equals: SKIP
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_1</s> | expected: cat_2 | equals: False
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_1</s> | expected: cat_2 | equals: False
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_1</s> | expected: cat_2 | equals: False
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: "If the image has a concert with a large | expected: cat_2 | equals: SKIP
+got: "If the image shows a concert with a large | expected: cat_1 | equals: SKIP
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: If the image is colorful and abstract, it's | expected: cat_2 | equals: SKIP
+got: cat_2</s> | expected: cat_1 | equals: False
+got: "Determine if the person in the image is | expected: cat_2 | equals: SKIP
+got: "classification of the images based on the presence | expected: cat_1 | equals: SKIP
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_1</s> | expected: cat_2 | equals: False
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: If the image shows a horse in an urban setting | expected: cat_1 | equals: SKIP
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: If the image contains a chair, it's cat | expected: cat_2 | equals: SKIP
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_1</s> | expected: cat_2 | equals: False
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_1</s> | expected: cat_2 | equals: False
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_1</s> | expected: cat_2 | equals: False
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_1</s> | expected: cat_2 | equals: False
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_1</s> | expected: cat_2 | equals: False
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: Look at the type of keyboard shown in the image | expected: cat_1 | equals: SKIP
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_1</s> | expected: cat_2 | equals: False
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_1</s> | expected: cat_2 | equals: False
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_1</s> | expected: cat_2 | equals: False
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: "If the image shows a person playing a drum | expected: cat_2 | equals: SKIP
+got: Does the image contain a person playing a musical instrument | expected: cat_1 | equals: SKIP
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: "classify the image as cat_1 if | expected: cat_1 | equals: SKIP
+got: cat_1</s> | expected: cat_2 | equals: False
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_1</s> | expected: cat_2 | equals: False
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: If the image contains a dolphin, it's | expected: cat_2 | equals: SKIP
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_1</s> | expected: cat_2 | equals: False
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_2</s> | expected: cat_2 | equals: True
+got: If the image shows a leopard in a tree | expected: cat_1 | equals: SKIP
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_1</s> | expected: cat_2 | equals: False
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_1</s> | expected: cat_2 | equals: False
+got: cat_1</s> | expected: cat_1 | equals: True
+got: "If the image contains a boat with people on | expected: cat_2 | equals: SKIP
+got: Check if the boat is a fishing boat. If | expected: cat_1 | equals: SKIP
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: If the person in the image is running, then | expected: cat_2 | equals: SKIP
+got: The specific instruction is: "Classify the image | expected: cat_1 | equals: SKIP
+got: If the image is a stadium with empty seats, | expected: cat_2 | equals: SKIP
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_1</s> | expected: cat_2 | equals: False
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: If the image is a cityscape at night | expected: cat_2 | equals: SKIP
+got: "Classify the image as cat_1 if | expected: cat_1 | equals: SKIP
+got: If the person in the image is holding a k | expected: cat_2 | equals: SKIP
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: If the image contains a kite, it's | expected: cat_2 | equals: SKIP
+got: The specific instruction is: "Classify the image | expected: cat_1 | equals: SKIP
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: If the image contains a human, it's cat | expected: cat_1 | equals: SKIP
+got: cat_1</s> | expected: cat_2 | equals: False
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_1</s> | expected: cat_2 | equals: False
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: If the image has a tent in it, then | expected: cat_2 | equals: SKIP
+got: "Is there a table under the tent?"</s> | expected: cat_1 | equals: SKIP
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_1</s> | expected: cat_2 | equals: False
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: "If the image shows a person walking on a | expected: cat_1 | equals: SKIP
+got: cat_1</s> | expected: cat_2 | equals: False
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_1</s> | expected: cat_2 | equals: False
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_1</s> | expected: cat_2 | equals: False
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: If the image contains a person working in a rice | expected: cat_2 | equals: SKIP
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: If the image shows a thin and light laptop, | expected: cat_1 | equals: SKIP
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_1</s> | expected: cat_2 | equals: False
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_1</s> | expected: cat_2 | equals: False
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: If the image contains children playing with water, it | expected: cat_2 | equals: SKIP
+got: If the image contains children playing or engaging in outdoor | expected: cat_1 | equals: SKIP
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_1</s> | expected: cat_2 | equals: False
+got: cat_1</s> | expected: cat_1 | equals: True
+got: "If the image has a large crowd of people | expected: cat_2 | equals: SKIP
+got: "If the image has a large crowd of people | expected: cat_1 | equals: SKIP
+got: cat_1</s> | expected: cat_2 | equals: False
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: The specific instruction is: "You are presented a | expected: cat_2 | equals: SKIP
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: If the image contains a flying object, it's | expected: cat_2 | equals: SKIP
+got: If the image shows a drone, classify it as | expected: cat_1 | equals: SKIP
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_1</s> | expected: cat_2 | equals: False
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: If the image contains a baby, it's cat | expected: cat_1 | equals: SKIP
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: If the image contains people walking on a street, | expected: cat_1 | equals: SKIP
+got: If the image contains a turtle swimming in water, | expected: cat_2 | equals: SKIP
+got: If the image contains a turtle, classify it as | expected: cat_1 | equals: SKIP
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_2</s> | expected: cat_1 | equals: False
+got: "Classify the image as cat_2 if | expected: cat_2 | equals: SKIP
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_1</s> | expected: cat_2 | equals: False
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+got: cat_1</s> | expected: cat_1 | equals: True
+got: cat_2</s> | expected: cat_2 | equals: True
+---------------------------------------

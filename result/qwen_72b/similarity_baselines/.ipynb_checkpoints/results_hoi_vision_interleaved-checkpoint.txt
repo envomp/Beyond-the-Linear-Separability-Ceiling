@@ -1,0 +1,15 @@
+experiment run details:
+  dataset: hoi
+  path: /gpfs/mariana/home/envomp/bongard/big_hake/
+  similarity location: vision
+  prompt structure: interleaved
+
+---------------------------------------
+  test split name: test_seen_obj_seen_act
+---------------------------------------
+
+in: torch.Size([41, 8192]), out: torch.Size([8192]), max_true: 0.7297090888023376, max_false: 0.7423438429832458, correct: False
+in: torch.Size([41, 8192]), out: torch.Size([8192]), max_true: 0.7893136739730835, max_false: 0.6438292264938354, correct: True
+in: torch.Size([57, 8192]), out: torch.Size([8192]), max_true: 0.8120722770690918, max_false: 0.7674461603164673, correct: True
+in: torch.Size([49, 8192]), out: torch.Size([8192]), max_true: 0.756912887096405, max_false: 0.6994203329086304, correct: True
+in: torch.Size([25, 8192]), out: torch.Size([8192]), max_true: 0.6897389888763428, max_false: 0.624117374420166, correct: True
