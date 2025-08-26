@@ -27,31 +27,32 @@ def extract_correctness(filename):
 
 
 def accuracy(vals):
-    non_skip = [x for x in vals if x is not None]
-    return round(sum(non_skip) / len(non_skip) * 100, 1)
+    return calculate_accuracy(vals)['str']
 
 
-def accuracy_with_error_margin(vals, bound=None):
+def calculate_accuracy(vals):
     non_skip = [x for x in vals if x is not None]
+
     n = len(non_skip)
-    vals_arr = np.array(non_skip)
-    p = np.mean(vals_arr)
+    p = np.mean(non_skip)
     standard_error = np.sqrt((p * (1 - p)) / n)
 
     alpha = P_VALUE
     z_score = norm.ppf(1 - alpha / 2)
-
     margin_of_error_proportion = z_score * standard_error
-    accuracy_percentage = p * 100
-    margin_of_error_percentage = margin_of_error_proportion * 100
-    if not bound:
-        return f"{accuracy_percentage:.1f} \\pm {margin_of_error_percentage:.1f}"
-    elif bound == "upper":
-        return p + margin_of_error_proportion
-    elif bound == "lower":
-        return p - margin_of_error_proportion
-    else:
-        return None
+
+    return {
+        'mean': p * 100,
+        'moe': margin_of_error_proportion * 100,
+        'n': n,
+        'str': f"{p * 100:.1f} \\pm {margin_of_error_proportion * 100:.1f}"
+    }
+
+
+def is_statistically_greater(stats_y, stats_x):
+    difference = stats_y['mean'] - stats_x['mean']
+    margin_of_error_diff = np.sqrt(stats_y['moe'] ** 2 + stats_x['moe'] ** 2)
+    return difference > margin_of_error_diff
 
 
 def agreement(correctness_values_1, correctness_values_2):
@@ -195,9 +196,8 @@ def accuracies_PEFT(highlight=True, brief=False, cross_domain=False, phi_ablatio
     else:
         models = ["phi"]
         datasets = ["openworld"]
-        pefts = ["vision", "connector", "postfix", "full", "lora", "lora_no_vision"]
-        pretty_names = ["Vision bias tuning ($\\mathcal{L}_{\\text{NT}}$)",
-                        "Connector tuning ($\\mathcal{L}_{\\text{NT}}$)",
+        pefts = ["connector", "postfix", "full", "lora", "lora_no_vision"]
+        pretty_names = ["Connector tuning ($\\mathcal{L}_{\\text{NT}}$)",
                         "Postfix tuning ($\\mathcal{L}_{\\text{NT}}$)",
                         "Prompt tuning ($\\mathcal{L}_{\\text{NT}}$)",
                         "LoRA ($\\mathcal{L}_{\\text{NT}}$)",
@@ -212,6 +212,10 @@ def accuracies_PEFT(highlight=True, brief=False, cross_domain=False, phi_ablatio
     else:  # syntactic generalization
         sim_runs = ["{model}_{dataset}_{peft}_similarity_vision.txt", "{model}_{dataset}_{peft}_similarity_final.txt", "{model}_{dataset}_{peft}_similarity_final_labeled_prompt.txt"]
         gen_runs = ["{model}_{dataset}_{peft}_eval.txt", "{model}_{dataset}_{peft}_eval_labeled_prompt.txt"]
+
+    accuracy_moe = lambda x, y: f"\\mathbf{{{calculate_accuracy(x)['str']}}}" \
+        if highlight and is_statistically_greater(calculate_accuracy(x), calculate_accuracy(y)) \
+        else calculate_accuracy(x)['str']
 
     accuracies = {}
     for model in models:
@@ -229,48 +233,41 @@ def accuracies_PEFT(highlight=True, brief=False, cross_domain=False, phi_ablatio
             sim_vision = extract_correctness(f"../result/{model.replace("gemma3", "gemma")}/similarity_baselines/results_{dataset}_vision_interleaved.txt")
             sim_final = extract_correctness(f"../result/{model.replace("gemma3", "gemma")}/similarity_baselines/results_{dataset}_final_interleaved.txt")
             sim_final_labeled = extract_correctness(f"../result/{model.replace("gemma3", "gemma")}/similarity_baselines/results_{dataset}_final_labeled.txt")
-            gen_surpassed = accuracy_with_error_margin(eval_direct, bound="lower") > accuracy_with_error_margin(sim_vision, bound="upper")
-            gen_crossing = accuracy_with_error_margin(eval_direct, bound="upper") > accuracy_with_error_margin(sim_vision, bound="lower")
-            gen_labeled_surpassed = accuracy_with_error_margin(eval_direct_labeled, bound="lower") > accuracy_with_error_margin(sim_vision, bound="upper")
-            gen_labeled_crossing = accuracy_with_error_margin(eval_direct_labeled, bound="upper") > accuracy_with_error_margin(sim_vision, bound="lower")
 
-            gen_accuracies[0].append(accuracy_with_error_margin(eval_direct))
-            if gen_crossing and highlight:
-                gen_accuracies[0][-1] = f"\\mathbf{{{gen_accuracies[0][-1]}}}"
-            if gen_surpassed and highlight:
-                gen_accuracies[0][-1] = f"\\underline{{{gen_accuracies[0][-1]}}}"
-            gen_accuracies[0].append(accuracy_with_error_margin(eval_direct_labeled))
-            if gen_labeled_crossing and highlight:
-                gen_accuracies[0][-1] = f"\\mathbf{{{gen_accuracies[0][-1]}}}"
-            if gen_labeled_surpassed and highlight:
-                gen_accuracies[0][-1] = f"\\underline{{{gen_accuracies[0][-1]}}}"
+            gen_accuracies[0].append(accuracy_moe(eval_direct, sim_vision))
+            gen_accuracies[0].append(accuracy_moe(eval_direct_labeled, sim_vision))
 
             vals_out = []
             for compare_method, compare_to in [("I", eval_direct), ("O", eval_direct_labeled)]:
                 observed, expected, p_value = agreement(sim_vision, compare_to)
                 if p_value < P_VALUE:
                     vals_out.append(("" if observed > expected else "-") + compare_method)
-            sim_accuracies[0].append(accuracy_with_error_margin(sim_vision) + "^{" + ",".join(vals_out) + "}")
+            sim_accuracies[0].append(accuracy(sim_vision) + "^{" + ",".join(vals_out) + "}")
 
             vals_out = []
             for compare_method, compare_to in [("I", eval_direct)]:
                 observed, expected, p_value = agreement(sim_final, compare_to)
                 if p_value < P_VALUE:
                     vals_out.append(("" if observed > expected else "-") + compare_method)
-            sim_accuracies[0].append(accuracy_with_error_margin(sim_final) + "^{" + ",".join(vals_out) + "}")
+            sim_accuracies[0].append(accuracy(sim_final) + "^{" + ",".join(vals_out) + "}")
 
             vals_out = []
             for compare_method, compare_to in [("O", eval_direct_labeled)]:
                 observed, expected, p_value = agreement(sim_final_labeled, compare_to)
                 if p_value < P_VALUE:
                     vals_out.append(("" if observed > expected else "-") + compare_method)
-            sim_accuracies[0].append(accuracy_with_error_margin(sim_final_labeled) + "^{" + ",".join(vals_out) + "}")
+            sim_accuracies[0].append(accuracy(sim_final_labeled) + "^{" + ",".join(vals_out) + "}")
 
             for i, peft in enumerate(pefts):
                 if sim_runs:
                     cor_vals_vision = extract_correctness(f'../result/PEFT/{sim_runs[0].replace("{model}", model).replace("{dataset}", dataset).replace("{peft}", peft)}')
                     cor_vals_final = extract_correctness(f'../result/PEFT/{sim_runs[1].replace("{model}", model).replace("{dataset}", dataset).replace("{peft}", peft)}')
                     cor_vals_final_labeled = extract_correctness(f'../result/PEFT/{sim_runs[2].replace("{model}", model).replace("{dataset}", dataset).replace("{peft}", peft)}')
+                else:
+                    cor_vals_vision = None
+                    cor_vals_final = None
+                    cor_vals_final_labeled = None
+
                 cor_vals_gen = extract_correctness(f'../result/PEFT/{gen_runs[0].replace("{model}", model).replace("{dataset}", dataset).replace("{peft}", peft)}')
                 cor_vals_gen_labeled = extract_correctness(f'../result/PEFT/{gen_runs[1].replace("{model}", model).replace("{dataset}", dataset).replace("{peft}", peft)}')
 
@@ -280,49 +277,39 @@ def accuracies_PEFT(highlight=True, brief=False, cross_domain=False, phi_ablatio
                         observed, expected, p_value = agreement(cor_vals_vision, compare_to)
                         if p_value < P_VALUE:
                             vals_out.append(("" if observed > expected else "-") + compare_method)
-                    sim_accuracies[1 + i].append(accuracy_with_error_margin(cor_vals_vision) + "^{" + ",".join(vals_out) + "}")
+                    sim_accuracies[1 + i].append(accuracy(cor_vals_vision) + "^{" + ",".join(vals_out) + "}")
 
                     vals_out = []
                     for compare_method, compare_to in [("I", cor_vals_gen)]:
                         observed, expected, p_value = agreement(cor_vals_final, compare_to)
                         if p_value < P_VALUE:
                             vals_out.append(("" if observed > expected else "-") + compare_method)
-                    sim_accuracies[1 + i].append(accuracy_with_error_margin(cor_vals_final) + "^{" + ",".join(vals_out) + "}")
+                    sim_accuracies[1 + i].append(accuracy(cor_vals_final) + "^{" + ",".join(vals_out) + "}")
 
                     vals_out = []
                     for compare_method, compare_to in [("O", cor_vals_gen_labeled)]:
                         observed, expected, p_value = agreement(cor_vals_final_labeled, compare_to)
                         if p_value < P_VALUE:
                             vals_out.append(("" if observed > expected else "-") + compare_method)
-                    sim_accuracies[1 + i].append(accuracy_with_error_margin(cor_vals_final_labeled) + "^{" + ",".join(vals_out) + "}")
+                    sim_accuracies[1 + i].append(accuracy(cor_vals_final_labeled) + "^{" + ",".join(vals_out) + "}")
                 else:
                     sim_accuracies[1 + i].append("-")
                     sim_accuracies[1 + i].append("-")
                     sim_accuracies[1 + i].append("-")
 
-                gen_accuracies[1 + i].append(accuracy_with_error_margin(cor_vals_gen))
-                if highlight and accuracy_with_error_margin(cor_vals_gen, bound="upper") > accuracy_with_error_margin(cor_vals_vision, bound="lower"):
-                    gen_accuracies[1 + i][-1] = f"\\mathbf{{{gen_accuracies[1 + i][-1]}}}"
-                if highlight and accuracy_with_error_margin(cor_vals_gen, bound="lower") > accuracy_with_error_margin(cor_vals_vision, bound="upper"):
-                    gen_accuracies[1 + i][-1] = f"\\underline{{{gen_accuracies[1 + i][-1]}}}"
-
-                gen_accuracies[1 + i].append(accuracy_with_error_margin(cor_vals_gen_labeled))
-                if highlight and accuracy_with_error_margin(cor_vals_gen_labeled, bound="upper") > accuracy_with_error_margin(cor_vals_vision, bound="lower"):
-                    gen_accuracies[1 + i][-1] = f"\\mathbf{{{gen_accuracies[1 + i][-1]}}}"
-                if highlight and accuracy_with_error_margin(cor_vals_gen_labeled, bound="lower") > accuracy_with_error_margin(cor_vals_vision, bound="upper"):
-                    gen_accuracies[1 + i][-1] = f"\\underline{{{gen_accuracies[1 + i][-1]}}}"
+                gen_accuracies[1 + i].append(accuracy_moe(cor_vals_gen, cor_vals_vision))
+                gen_accuracies[1 + i].append(accuracy_moe(cor_vals_gen_labeled, cor_vals_vision))
     return accuracies, pretty_names
 
 
 def agreement_baselines():
-    models = ["phi", "gemma_4b", "gemma_27b", "intern_14b", "intern_78b",  "qwen_7b", "qwen_72b", "pixtral"]
+    models = ["phi", "gemma_4b", "gemma_27b", "intern_14b", "intern_78b", "qwen_7b", "qwen_72b", "pixtral"]
     datasets = ["openworld", "hoi"]
     methods = ["interleaved", "interleaved_test_first", "labeled", "labeled_test_first"]
     isolation_methods = ["batched", "single"]
 
     collected_rows = []
-    ceiling_strength = {"crossed": [],
-                        "surpassed": {"pathway": [], "repr": []},
+    ceiling_strength = {"surpassed": {"pathway": [], "repr": []},
                         "all": {"sim_vision": [], "sim_final": []},
                         "inversed": {"sim_vision": [], "sim_final": []}}
 
@@ -351,10 +338,8 @@ def agreement_baselines():
                             vals_out.append(("" if observed > expected else "-") + compare_method)
 
                 for generative_eval, gen_name in [(eval_direct, "direct"), (eval_cot, "cot")]:
-                    if accuracy_with_error_margin(eval_cot, bound="upper") > accuracy_with_error_margin(sim_vision, bound="lower"):
-                        ceiling_strength["crossed"].append(f"{model}_{dataset}_{method}_{gen_name}")
-                    if accuracy_with_error_margin(eval_cot, bound="lower") > accuracy_with_error_margin(sim_vision, bound="upper"):
-                        if accuracy_with_error_margin(eval_cot, bound="lower") < accuracy_with_error_margin(sim_final, bound="upper"):
+                    if is_statistically_greater(calculate_accuracy(generative_eval), calculate_accuracy(sim_vision)):
+                        if is_statistically_greater(calculate_accuracy(sim_final), calculate_accuracy(sim_vision)):
                             ceiling_strength["surpassed"]["repr"].append(f"{model}_{dataset}_{method}_{gen_name}")
                         else:
                             ceiling_strength["surpassed"]["pathway"].append(f"{model}_{dataset}_{method}_{gen_name}")
@@ -363,10 +348,10 @@ def agreement_baselines():
                     'model': model,
                     'dataset': dataset,
                     'method': method,
-                    'gen_direct': accuracy_with_error_margin(eval_direct),
-                    'gen_cot': accuracy_with_error_margin(eval_cot),
-                    'sim_vision': accuracy_with_error_margin(sim_vision),
-                    'sim_final': accuracy_with_error_margin(sim_final),
+                    'gen_direct': accuracy(eval_direct),
+                    'gen_cot': accuracy(eval_cot),
+                    'sim_vision': accuracy(sim_vision),
+                    'sim_final': accuracy(sim_final),
                     'cor_vision': cor_vision,
                     'cor_final': cor_final,
                 })
@@ -380,8 +365,8 @@ def agreement_baselines():
                     'method': method,
                     'gen_direct': "",
                     'gen_cot': "",
-                    'sim_vision': accuracy_with_error_margin(sim_vision),
-                    'sim_final': accuracy_with_error_margin(sim_final),
+                    'sim_vision': accuracy(sim_vision),
+                    'sim_final': accuracy(sim_final),
                     'cor_vision': [],
                     'cor_final': [],
                 })
@@ -540,8 +525,8 @@ def class_imbalance_table_latex(accuracies_rows_data):
                 s_vals = sim_accuracies[method_idx]
 
                 data_cells_str = (
-                    rf"{g_vals[0]:.1f} & {g_vals[1]:.1f} & {g_vals[2]:.1f} & "
-                    rf"{s_vals[0]:.1f} & {s_vals[1]:.1f} & {s_vals[2]:.1f}"
+                    f"${g_vals[0]}$ & ${g_vals[1]}$ & ${g_vals[2]}$ & "
+                    f"${s_vals[0]}$ & ${s_vals[1]}$ & ${s_vals[2]}$"
                 )
 
                 current_row_parts = ["            "]
@@ -573,10 +558,8 @@ def class_imbalance_table_latex(accuracies_rows_data):
 
 
 def hoi_by_split_table_latex(accuracies: dict) -> str:
-    def format_row(data_list: list) -> tuple[str, float]:
-        avg = sum(data_list) / len(data_list)
-        vals_str = " & ".join([f"{v:.1f}" for v in data_list])
-        return vals_str, avg
+    def format_row(data_list: list) -> str:
+        return " & ".join([f"${v}$" for v in data_list])
 
     latex_parts = [
         r'\begin{table}[htbp]',
@@ -600,8 +583,7 @@ def hoi_by_split_table_latex(accuracies: dict) -> str:
             \end{tabular}
             & \begin{tabular}[c]{@{}c@{}}
                   Unseen obj. \\ Unseen act.~(\%)
-            \end{tabular}
-            & Avg acc.~(\%) \\''',
+            \end{tabular}''',
         r'            \midrule'
     ]
 
@@ -629,21 +611,16 @@ def hoi_by_split_table_latex(accuracies: dict) -> str:
         gen_data, sim_data = accuracies[model_key]['hoi']
         for i, (method, objective, source, data_idx) in enumerate(row_definitions):
             data_source = gen_data if source == 'gen' else sim_data
-            vals_str, avg = format_row(data_source[data_idx][0])
+            vals_str = format_row(data_source[data_idx][0])
             method_padded = f'{method:<13}'
             objective_padded = f'{objective:<33}'
             if i == 0:
                 line = fr'            {model_name}'
             else:
                 line = '           '
-            line += fr' & {method_padded} & {objective_padded} & {vals_str} & {avg:.1f} \\'
+            line += fr' & {method_padded} & {objective_padded} & {vals_str} \\'
             latex_parts.append(line)
         latex_parts.append(r'            \midrule')
-    latex_parts.extend([
-        r'            CLIP-RN50',
-        r'            & TPT           &                                 & 66.4 & 68.5 & 66.0 & 65.5 & 66.6 \\',
-        r'            & SVM-Mimic     &                                 & 69.6 & 70.8 & 78.1 & 71.2 & 72.5 \\',
-    ])
     latex_parts.extend([
         r'            \bottomrule',
         r'        \end{tabular}',
@@ -708,6 +685,7 @@ def peft_table_latex(accuracies, methods):
                         ]
                     except (IndexError, TypeError) as e:
                         print(f"Warning: Data format issue for {model_key}/{dataset_key}/Method'{method_display_name}': {e}. Using N/A.")
+                        print(accuracies)
 
                 all_cells = [cell1_model, cell2_dataset, method_display_name] + data_cells_str
                 row_string = " & ".join(all_cells)
@@ -727,25 +705,25 @@ def peft_table_latex(accuracies, methods):
 
 
 def plot(baseline_scores):
-    df = pd.DataFrame(baseline_scores)
-    model_display_names = {"phi": "Phi 3.5 vision", "pixtral": "Pixtral 12B", "gemma_4b": "Gemma3 4B", "gemma_27b": "Gemma3 27B", "intern_14b": "InternVL 14B", "qwen_7b": "Qwen2.5-VL 7B", "qwen_72b": "Qwen2.5-VL 72B"}
-    dataset_display_names = {
-        "openworld": "OpenWorld",
-        "hoi": "human-object interaction"
+    P_VALUE = 0.05
+    df = pd.DataFrame([x for x in baseline_scores if x['gen_direct']])
+    model_display_names = {
+        "phi": "Phi 3.5 vision", "pixtral": "Pixtral 12B", "gemma_4b": "Gemma3 4B",
+        "gemma_27b": "Gemma3 27B", "intern_14b": "InternVL 14B",
+        "qwen_7b": "Qwen2.5-VL 7B", "qwen_72b": "Qwen2.5-VL 72B"
     }
     df['model'] = df['model'].map(model_display_names).fillna(df['model'])
-    df['dataset'] = df['dataset'].map(dataset_display_names).fillna(df['dataset'])
 
-    def parse_score(score_str):
-        if not isinstance(score_str, str) or not score_str.strip():
-            return np.nan
-        try:
-            return float(score_str.split(' ')[0])
-        except (ValueError, IndexError):
-            return np.nan
-
+    dataset_display_names = {
+        "openworld": "OpenWorld",
+        "hoi": "Human-Object Interaction"
+    }
+    dataset_sizes = {
+        "openworld": 500,
+        "hoi": 800
+    }
     for col in ['gen_direct', 'gen_cot', 'sim_vision']:
-        df[col] = df[col].apply(parse_score)
+        df[col] = df[col].apply(lambda x: float(x.split(' ')[0]))
 
     df_plot = df.melt(
         id_vars=['model', 'dataset', 'sim_vision'],
@@ -755,43 +733,54 @@ def plot(baseline_scores):
     )
     df_plot['Prompting Method'] = df_plot['Prompting Method'].str.replace('gen_', '').str.title()
     df_plot.dropna(subset=['sim_vision', 'Generative Accuracy'], inplace=True)
+
     sns.set_theme(style="whitegrid", context="talk")
-    fig, axes = plt.subplots(1, 2, figsize=(10, 7), sharey=True)
+    fig, axes = plt.subplots(1, 2, figsize=(12, 7), sharey=True)
     fig.suptitle('Generative performance vs. linear separability', fontsize=16, fontweight='bold')
+
     all_vals = df_plot['sim_vision'].tolist() + df_plot['Generative Accuracy'].tolist()
     lim_min = np.nanmin(all_vals) - 2
     lim_max = 100
 
-    for i, dataset_name in enumerate(dataset_display_names.values()):
+    for i, dataset_name in enumerate(dataset_display_names.keys()):
         ax = axes[i]
         data_subset = df_plot[df_plot['dataset'] == dataset_name]
+        n = dataset_sizes[dataset_name]
 
-        sns.scatterplot(
-            data=data_subset, x='sim_vision', y='Generative Accuracy',
-            hue='model', style='Prompting Method', s=150, alpha=0.8, palette='colorblind', ax=ax)
+        z_score = norm.ppf(1 - P_VALUE / 2)
+        x_vals = np.linspace(0, 100, 500)
+        p = x_vals / 100
+        p_clipped = np.clip(p, 0, 1)
+        margin_of_error = z_score * np.sqrt((p_clipped * (1 - p_clipped)) / n) * 100
+        upper_bound = x_vals + np.sqrt(2) * margin_of_error
 
-        ax.plot([lim_min, lim_max], [lim_min, lim_max], 'k--', alpha=0.7, zorder=0)
-        ax.set_title(dataset_name.title(), fontsize=12)
-        ax.set_xlabel('linear classification accuracy (%)', fontsize=12)
+        ax.fill_between(x_vals, upper_bound, lim_max, color='green', alpha=0.15, label='Surpassed')
+        ax.fill_between(x_vals, upper_bound, 0, color='red', alpha=0.15, label='Alignment bottleneck')
+
+        sns.scatterplot(data=data_subset, x='sim_vision', y='Generative Accuracy',
+                        hue='model', style='Prompting Method', s=150, alpha=0.8, palette='colorblind', ax=ax, zorder=3)
+
+        ax.set_title(dataset_display_names[dataset_name], fontsize=14)
+        ax.set_xlabel('Linear Classification Accuracy (%)', fontsize=12)
         if i == 0:
-            ax.set_ylabel('generative accuracy (%)', fontsize=14)
+            ax.set_ylabel('Generative Accuracy (%)', fontsize=14)
 
         ax.set_xlim(lim_min, lim_max)
         ax.set_ylim(lim_min, lim_max)
         ax.set_aspect('equal', adjustable='box')
 
     handles, labels = axes[0].get_legend_handles_labels()
+    order = [i for i, s in enumerate(labels) if s.startswith('Gen Acc')]
+    order += [i for i, s in enumerate(labels) if s.startswith('LSC')]
+    order += [i for i in range(len(labels)) if i not in order]
+    handles = [handles[i] for i in order]
+    labels = [labels[i] for i in order]
+
     axes[0].get_legend().remove()
     axes[1].get_legend().remove()
 
-    fig.legend(
-        handles, labels,
-        fontsize=12,
-        loc='lower center',
-        bbox_to_anchor=(0.5, 0),
-        ncol=3,
-    )
-    fig.tight_layout(rect=[0, 0.2, 1, 1])
+    fig.legend(handles, labels, fontsize=12, loc='lower center', bbox_to_anchor=(0.5, 0), ncol=4)
+    fig.tight_layout(rect=[0, 0.25, 1, 1])
     plt.show()
 
 
@@ -799,28 +788,28 @@ scores, ceiling = agreement_baselines()
 print(ceiling)
 print(scores)
 plot(scores)
-print(baseline_table_latex(scores))
+# print(baseline_table_latex(scores))
 
-accuracies = imbalances_PEFT()
-print(accuracies)
-print(class_imbalance_table_latex(accuracies))
+# accuracies = imbalances_PEFT()
+# print(accuracies)
+# print(class_imbalance_table_latex(accuracies))
 
-accuracies, methods = accuracies_PEFT(phi_ablation=True)
-print(accuracies)
-print(peft_table_latex(accuracies, methods))
+# accuracies, methods = accuracies_PEFT(phi_ablation=True)
+# print(accuracies)
+# print(peft_table_latex(accuracies, methods))
 
-accuracies, methods = accuracies_PEFT(highlight=True)
-print(accuracies)
-print(peft_table_latex(accuracies, methods))
+# accuracies, methods = accuracies_PEFT(highlight=True)
+# print(accuracies)
+# print(peft_table_latex(accuracies, methods))
 
-accuracies, methods = accuracies_PEFT(no_vision=True, brief=True, highlight=False)
-print(accuracies)
-print(peft_table_latex(accuracies, methods))
+# accuracies, methods = accuracies_PEFT(no_vision=True, brief=True, highlight=False)
+# print(accuracies)
+# print(peft_table_latex(accuracies, methods))
 
-accuracies, methods = accuracies_PEFT(cross_domain=True, highlight=False, brief=True)
-print(accuracies)
-print(peft_table_latex(accuracies, methods))
+# accuracies, methods = accuracies_PEFT(cross_domain=True, highlight=True, brief=True)
+# print(accuracies)
+# print(peft_table_latex(accuracies, methods))
 
-accuracies = splits_PEFT()
-print(accuracies)
-print(hoi_by_split_table_latex(accuracies))
+# accuracies = splits_PEFT()
+# print(accuracies)
+# print(hoi_by_split_table_latex(accuracies))
