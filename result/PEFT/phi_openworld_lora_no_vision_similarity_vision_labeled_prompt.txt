@@ -1,7 +1,7 @@
 experiment run details:
   dataset: openworld
   model: phi openworld lora
-  path: /home/e/IdeaProjects/PhD-projects/projects/separability_ceiling/
+  path: /gpfs/mariana/home/envomp/bongard/
 ---------------------------------------
   test split name: test
 ---------------------------------------

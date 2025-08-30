@@ -1,4 +1,11 @@
------ test_seen_obj_seen_act -----
+experiment run details:
+  dataset: hoi
+  model: phi hoi lora
+  path: /gpfs/mariana/home/envomp/bongard/big_hake/
+---------------------------------------
+  test split name: test_seen_obj_seen_act
+---------------------------------------
+
 got: cat_1<|endoftext|> | expected: cat_2 | equals: False
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
@@ -11,7 +18,7 @@ got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
-got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
@@ -19,7 +26,7 @@ got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
-got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
@@ -38,7 +45,7 @@ got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
-got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_1<|endoftext|> | expected: cat_2 | equals: False
@@ -62,27 +69,27 @@ got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_1<|endoftext|> | expected: cat_2 | equals: False
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
-got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_1<|endoftext|> | expected: cat_2 | equals: False
-got: cat_2<|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
-got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: cat_1<|endoftext|> | expected: cat_2 | equals: False
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
-got: cat_1<|endoftext|> | expected: cat_1 | equals: True
-got: cat_1<|endoftext|> | expected: cat_2 | equals: False
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
-got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
@@ -109,7 +116,7 @@ got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
-got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
@@ -122,7 +129,7 @@ got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
-got: cat_2<|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
@@ -137,19 +144,19 @@ got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_1<|endoftext|> | expected: cat_2 | equals: False
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
-got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
-got: cat_2<|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_1<|endoftext|> | expected: cat_2 | equals: False
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
-got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
@@ -162,7 +169,7 @@ got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
-got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
@@ -199,7 +206,15 @@ got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
------ test_seen_obj_unseen_act -----
+---------------------------------------
+Summary for Split 'test_seen_obj_seen_act':
+ results: {'correct': {'cat_1': 70, 'cat_2': 89}, 'incorrect': {'cat_1': 30, 'cat_2': 11}}
+ accuracy: 79.50%
+
+---------------------------------------
+  test split name: test_seen_obj_unseen_act
+---------------------------------------
+
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
@@ -213,7 +228,7 @@ got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
-got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
@@ -227,12 +242,12 @@ got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
-got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
-got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
@@ -240,7 +255,7 @@ got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
-got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
@@ -265,7 +280,7 @@ got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
-got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
@@ -280,12 +295,12 @@ got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
-got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_1<|endoftext|> | expected: cat_2 | equals: False
-got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
@@ -302,7 +317,7 @@ got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_1<|endoftext|> | expected: cat_2 | equals: False
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
-got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_1<|endoftext|> | expected: cat_2 | equals: False
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
@@ -317,9 +332,9 @@ got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_1<|endoftext|> | expected: cat_2 | equals: False
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
-got: cat_1<|endoftext|> | expected: cat_1 | equals: True
-got: cat_1<|endoftext|> | expected: cat_2 | equals: False
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
@@ -348,7 +363,7 @@ got: cat_1<|endoftext|> | expected: cat_2 | equals: False
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
-got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
@@ -368,12 +383,12 @@ got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
-got: cat_1<|endoftext|> | expected: cat_2 | equals: False
-got: cat_1<|endoftext|> | expected: cat_1 | equals: True
-got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
@@ -388,11 +403,11 @@ got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
-got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
-got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
@@ -400,18 +415,26 @@ got: cat_1<|endoftext|> | expected: cat_2 | equals: False
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
------ test_unseen_obj_seen_act -----
+---------------------------------------
+Summary for Split 'test_seen_obj_unseen_act':
+ results: {'correct': {'cat_1': 143, 'cat_2': 175}, 'incorrect': {'cat_1': 57, 'cat_2': 25}}
+ accuracy: 79.50%
+
+---------------------------------------
+  test split name: test_unseen_obj_seen_act
+---------------------------------------
+
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
-got: cat_2<|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
-got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
-got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
@@ -420,14 +443,14 @@ got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
-got: cat_1<|endoftext|> | expected: cat_1 | equals: True
-got: cat_1<|endoftext|> | expected: cat_2 | equals: False
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
-got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_1<|endoftext|> | expected: cat_2 | equals: False
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
@@ -436,9 +459,9 @@ got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
-got: cat_1<|endoftext|> | expected: cat_1 | equals: True
-got: cat_1<|endoftext|> | expected: cat_2 | equals: False
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
@@ -446,11 +469,11 @@ got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
-got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
-got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
@@ -464,7 +487,7 @@ got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
-got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
@@ -472,8 +495,6 @@ got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
-got: cat_1<|endoftext|> | expected: cat_1 | equals: True
-got: cat_1<|endoftext|> | expected: cat_2 | equals: False
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
@@ -487,8 +508,10 @@ got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
-got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_1<|endoftext|> | expected: cat_2 | equals: False
@@ -501,14 +524,14 @@ got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
-got: cat_1<|endoftext|> | expected: cat_2 | equals: False
-got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
-got: cat_2<|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_1<|endoftext|> | expected: cat_2 | equals: False
@@ -526,23 +549,23 @@ got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
-got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
-got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_1<|endoftext|> | expected: cat_2 | equals: False
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_1<|endoftext|> | expected: cat_2 | equals: False
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
-got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
-got: cat_1<|endoftext|> | expected: cat_2 | equals: False
-got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_1<|endoftext|> | expected: cat_2 | equals: False
@@ -550,7 +573,7 @@ got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_1<|endoftext|> | expected: cat_2 | equals: False
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
-got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
@@ -558,9 +581,9 @@ got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
-got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
-got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_1<|endoftext|> | expected: cat_2 | equals: False
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_1<|endoftext|> | expected: cat_2 | equals: False
@@ -577,21 +600,21 @@ got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
-got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
-got: cat_1<|endoftext|> | expected: cat_2 | equals: False
-got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
-got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_1<|endoftext|> | expected: cat_2 | equals: False
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
@@ -601,7 +624,15 @@ got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
------ test_unseen_obj_unseen_act -----
+---------------------------------------
+Summary for Split 'test_unseen_obj_seen_act':
+ results: {'correct': {'cat_1': 209, 'cat_2': 260}, 'incorrect': {'cat_1': 91, 'cat_2': 40}}
+ accuracy: 78.17%
+
+---------------------------------------
+  test split name: test_unseen_obj_unseen_act
+---------------------------------------
+
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_1<|endoftext|> | expected: cat_2 | equals: False
@@ -611,7 +642,7 @@ got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_1<|endoftext|> | expected: cat_2 | equals: False
-got: cat_2<|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_1<|endoftext|> | expected: cat_2 | equals: False
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
@@ -632,11 +663,11 @@ got: cat_1<|endoftext|> | expected: cat_2 | equals: False
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
-got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
-got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
@@ -647,7 +678,7 @@ got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
-got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_1<|endoftext|> | expected: cat_2 | equals: False
@@ -661,7 +692,7 @@ got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_1<|endoftext|> | expected: cat_2 | equals: False
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
-got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
@@ -678,7 +709,7 @@ got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
-got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
@@ -702,10 +733,10 @@ got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_1<|endoftext|> | expected: cat_2 | equals: False
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
-got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: cat_1<|endoftext|> | expected: cat_2 | equals: False
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
-got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_1<|endoftext|> | expected: cat_2 | equals: False
@@ -717,8 +748,6 @@ got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
-got: cat_1<|endoftext|> | expected: cat_1 | equals: True
-got: cat_1<|endoftext|> | expected: cat_2 | equals: False
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
@@ -730,9 +759,11 @@ got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
-got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
@@ -744,25 +775,25 @@ got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
-got: cat_1<|endoftext|> | expected: cat_2 | equals: False
-got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
-got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_1<|endoftext|> | expected: cat_2 | equals: False
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
-got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
-got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
-got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
@@ -770,8 +801,6 @@ got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
-got: cat_2<|endoftext|> | expected: cat_2 | equals: True
-got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
@@ -789,10 +818,12 @@ got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
-got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
@@ -802,4 +833,9 @@ got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
 got: cat_2<|endoftext|> | expected: cat_2 | equals: True
 got: cat_1<|endoftext|> | expected: cat_1 | equals: True
-[156, 155, 150, 158]
+---------------------------------------
+Summary for Split 'test_unseen_obj_unseen_act':
+ results: {'correct': {'cat_1': 288, 'cat_2': 341}, 'incorrect': {'cat_1': 112, 'cat_2': 59}}
+ accuracy: 78.62%
+
+---------------------------------------

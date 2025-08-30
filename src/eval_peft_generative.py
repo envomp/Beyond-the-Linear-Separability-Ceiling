@@ -1,7 +1,7 @@
 from scripts.conf import *
 from scripts.hf_models import load_phi_3_5_vision, load_pixtral_12B, load_gemma3_4B
 from scripts.hf_models import inference, load_weights, lora_post_dispatch
-from src.processor import *
+from processor import *
 from best_PEFT import param_datas
 
 

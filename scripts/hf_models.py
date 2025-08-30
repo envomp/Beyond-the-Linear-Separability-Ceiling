@@ -384,8 +384,8 @@ def load_phi_3_5_vision(trainable_prompt_size=0, trainable_image_size=0, do_chec
 
     name = "microsoft/Phi-3.5-vision-instruct"
     revision = "dfc36d84e079f4d99c654f1cc489e0970f5917c0"
-    # path = f"/gpfs/mariana/home/envomp/huggingface/hub/models--microsoft--Phi-3.5-vision-instruct/snapshots/{revision}"
-    path = f"/media/e/data/huggingface/hub/models--microsoft--Phi-3.5-vision-instruct/snapshots/{revision}"
+    path = f"/gpfs/mariana/home/envomp/huggingface/hub/models--microsoft--Phi-3.5-vision-instruct/snapshots/{revision}"
+    # path = f"/media/e/data/huggingface/hub/models--microsoft--Phi-3.5-vision-instruct/snapshots/{revision}"
 
     if do_checkpoint:
         with init_empty_weights():
@@ -432,7 +432,7 @@ def load_phi_3_5_vision(trainable_prompt_size=0, trainable_image_size=0, do_chec
 
 
 def lora_post_dispatch(llm):
-    proj_keywords = ['q_proj', 'k_proj', 'v_proj', 'o_proj', 'up_proj', 'down_proj', 'gate_proj']
+    proj_keywords = ['q_proj', 'k_proj', 'v_proj', 'o_proj', 'out_proj', 'qkv_proj', 'fc1', 'fc2', 'up_proj', 'gate_up_proj', 'down_proj', 'gate_proj']
     llm.enable_input_require_grads()
     llm = apply_lora(llm, target_modules=proj_keywords)  # attention & ffn proj for vision and language stack
     llm = materialize_lora_weights(llm)

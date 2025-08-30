@@ -784,10 +784,10 @@ def plot(baseline_scores):
     plt.show()
 
 
-scores, ceiling = agreement_baselines()
-print(ceiling)
-print(scores)
-plot(scores)
+# scores, ceiling = agreement_baselines()
+# print(ceiling)
+# print(scores)
+# plot(scores)
 # print(baseline_table_latex(scores))
 
 # accuracies = imbalances_PEFT()

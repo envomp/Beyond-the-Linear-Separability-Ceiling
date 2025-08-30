@@ -5,7 +5,7 @@ from scripts.hf_models import find_image_token_ranges_phi, find_image_token_rang
 from transformers import GenerationConfig
 from PIL import Image
 from scripts.eval_similarity import evaluate_pairs_b
-from src.processor import *
+from processor import *
 from best_PEFT import param_datas
 
 

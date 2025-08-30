@@ -2,7 +2,7 @@ from scripts.conf import *
 from scripts.hf_models import load_phi_3_5_vision, load_pixtral_12B, load_gemma3_4B, load_gemma3_27B
 from scripts.hf_models import inference, lora_post_dispatch, resize_images
 from scripts.hf_models import find_image_token_ranges_phi, find_image_token_ranges_pixtral, find_image_token_ranges_gemma
-from src.processor import *
+from processor import *
 from PIL import Image
 import torch
 import torch.nn as nn
