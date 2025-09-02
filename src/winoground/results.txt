@@ -1,0 +1,106 @@
+model: phi, loc: None, train_ds: None, train_obj_sim: False
+Text retrieval score accuracy: 16.75% (67/400)
+{'Object': 30, 'Relation': 22, 'Both': 15}
+Image retrieval score accuracy: 2.50% (10/400)
+{'Relation': 5, 'Object': 4, 'Both': 1} 
+
+
+model: phi, loc: lora, train_ds: hoi, train_obj_sim: False
+Text retrieval score accuracy: 18.25% (73/400)
+{'Object': 37, 'Relation': 23, 'Both': 13}
+Image retrieval score accuracy: 13.50% (54/400)
+{'Relation': 27, 'Object': 17, 'Both': 10} 
+
+model: phi, loc: lora, train_ds: hoi, train_obj_sim: True
+Text retrieval score accuracy: 29.25% (117/400)
+{'Object': 52, 'Relation': 50, 'Both': 15}
+Image retrieval score accuracy: 14.00% (56/400)
+{'Relation': 26, 'Object': 20, 'Both': 10} 
+
+
+model: phi, loc: lora, train_ds: openworld, train_obj_sim: False
+Text retrieval score accuracy: 24.00% (96/400)
+{'Object': 44, 'Relation': 38, 'Both': 14}
+Image retrieval score accuracy: 14.75% (59/400)
+{'Relation': 38, 'Object': 17, 'Both': 4} 
+
+
+model: phi, loc: lora, train_ds: openworld, train_obj_sim: True
+Text retrieval score accuracy: 18.75% (75/400)
+{'Object': 35, 'Relation': 26, 'Both': 14}
+Image retrieval score accuracy: 1.75% (7/400)
+{'Relation': 5, 'Object': 1, 'Both': 1} 
+
+
+
+model: pixtral, loc: None, train_ds: None, train_obj_sim: False
+Text retrieval score accuracy: 28.75% (115/400)
+{'Relation': 51, 'Object': 58, 'Both': 6}
+Image retrieval score accuracy: 4.25% (17/400)
+{'Object': 8, 'Relation': 8, 'Both': 1} 
+
+
+model: pixtral, loc: lora, train_ds: hoi, train_obj_sim: False
+Text retrieval score accuracy: 43.50% (174/400)
+{'Relation': 87, 'Object': 78, 'Both': 9}
+Image retrieval score accuracy: 24.75% (99/400)
+{'Relation': 32, 'Object': 52, 'Both': 15} 
+
+
+model: pixtral, loc: lora, train_ds: hoi, train_obj_sim: True
+Text retrieval score accuracy: 54.75% (219/400)
+{'Relation': 121, 'Object': 84, 'Both': 14}
+Image retrieval score accuracy: 12.25% (49/400)
+{'Relation': 29, 'Object': 18, 'Both': 2} 
+
+
+model: pixtral, loc: lora, train_ds: openworld, train_obj_sim: False
+Text retrieval score accuracy: 32.75% (131/400)
+{'Relation': 56, 'Object': 68, 'Both': 7}
+Image retrieval score accuracy: 19.75% (79/400)
+{'Object': 37, 'Relation': 32, 'Both': 10} 
+
+
+model: pixtral, loc: lora, train_ds: openworld, train_obj_sim: True
+Text retrieval score accuracy: 33.25% (133/400)
+{'Relation': 69, 'Object': 59, 'Both': 5}
+Image retrieval score accuracy: 8.50% (34/400)
+{'Object': 15, 'Relation': 16, 'Both': 3} 
+
+
+
+model: gemma3_4b, loc: None, train_ds: None, train_obj_sim: None
+Text retrieval score accuracy: 5.25% (21/400)
+{'Relation': 5, 'Object': 12, 'Both': 4}
+Image retrieval score accuracy: 0.75% (3/400)
+{'Relation': 3} 
+
+
+model: gemma3_4b, loc: lora, train_ds: hoi, train_obj_sim: False
+Text retrieval score accuracy: 5.75% (23/400)
+{'Object': 15, 'Relation': 6, 'Both': 2}
+Image retrieval score accuracy: 3.25% (13/400)
+{'Relation': 6, 'Object': 6, 'Both': 1} 
+
+
+model: gemma3_4b, loc: lora, train_ds: hoi, train_obj_sim: True
+Text retrieval score accuracy: 12.25% (49/400)
+{'Object': 29, 'Relation': 11, 'Both': 9}
+Image retrieval score accuracy: 13.25% (53/400)
+{'Object': 22, 'Relation': 20, 'Both': 11} 
+
+
+
+model: gemma3_4b, loc: lora, train_ds: openworld, train_obj_sim: False
+Text retrieval score accuracy: 5.75% (23/400)
+{'Relation': 5, 'Object': 14, 'Both': 4}
+Image retrieval score accuracy: 1.00% (4/400)
+{'Relation': 3, 'Object': 1} 
+
+
+
+model: gemma3_4b, loc: lora, train_ds: openworld, train_obj_sim: True
+Text retrieval score accuracy: 12.25% (49/400)
+{'Object': 25, 'Relation': 19, 'Both': 5}
+Image retrieval score accuracy: 2.75% (11/400)
+{'Relation': 7, 'Object': 4}

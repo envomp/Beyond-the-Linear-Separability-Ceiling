@@ -13,7 +13,7 @@ from huggingface_hub import login
 
 # login(token="hf_...")
 
-HOI_DATASET_PATH = "~/Downloads/hake/"
-OPENWORLD_DATASET_PATH = "~/Downloads/images/"
-BONGARD_RESULT_DIR = "~/Downloads/bongard_PEFT/"
-PEFT_PATH = "~/Downloads/bongard_PEFT/"
+HOI_DATASET_PATH = "/home/e/Downloads/hake/"
+OPENWORLD_DATASET_PATH = "/home/e/Downloads/images/"
+BONGARD_RESULT_DIR = "/home/e/Downloads/bongard_PEFT/"
+PEFT_PATH = "/home/e/Downloads/bongard_PEFT/"
