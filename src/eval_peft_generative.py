@@ -2,7 +2,7 @@ from scripts.conf import *
 from scripts.hf_models import load_phi_3_5_vision, load_pixtral_12B, load_gemma3_4B
 from scripts.hf_models import inference, load_weights, lora_post_dispatch
 from processor import *
-from best_PEFT import param_datas
+from best_PEFT import param_datas, vqa_loras
 
 
 def eval_generative(model, learnable_embedding_location, dataset, sim, base_prompt=interleaved_prompt, cross_domain=False, no_vision=False):
@@ -21,17 +21,20 @@ def eval_generative(model, learnable_embedding_location, dataset, sim, base_prom
         elif dataset == "hoi":
             load_dataset = "openworld"
 
-    param_data = torch.load(PEFT_PATH + param_datas[(model, learnable_embedding_location, load_dataset, sim)], weights_only=True)
+    param_key = (model, learnable_embedding_location, load_dataset, sim)
+    if param_key in param_datas.keys():
+        param_data = torch.load(PEFT_PATH + param_datas[param_key], weights_only=True)
+    elif param_key in vqa_loras.keys():
+        param_data = torch.load(PEFT_PATH + vqa_loras[param_key], weights_only=True)
     param_name = None
 
     resolution = 224
     trainable_prompt_size = 100 if learnable_embedding_location in ["full", "postfix"] else 0
-    trainable_image_size = 336 if learnable_embedding_location in ["vision"] else 0
     tsize = trainable_prompt_size * 2 if learnable_embedding_location == "full" else trainable_prompt_size
     post_dispatch = lora_post_dispatch if learnable_embedding_location == "lora" else lambda x: x
 
     if model == "phi":
-        llm, processor = load_phi_3_5_vision(trainable_prompt_size=tsize, trainable_image_size=trainable_image_size, post_dispatch=post_dispatch)
+        llm, processor = load_phi_3_5_vision(trainable_prompt_size=tsize, post_dispatch=post_dispatch)
         if learnable_embedding_location == "full":
             prompt_fn = lambda x: get_phi_trainable_prompt_full(x, trainable_tokens=trainable_prompt_size, base_prompt=base_prompt)
         elif learnable_embedding_location == "lora":
@@ -70,7 +73,7 @@ def eval_generative(model, learnable_embedding_location, dataset, sim, base_prom
 
     _, _, test = get_ds(dataset)
 
-    _sim = '_sim' if sim else ''
+    _sim = ('_sim' if sim else '') if isinstance(type, bool) else sim
     _no_vision = '_no_vision' if no_vision else ''
     _cross_domain = '_cross_domain' if cross_domain else ''
     _res = f"_{resolution}" if resolution != 224 else ""
@@ -119,12 +122,16 @@ def eval_generative(model, learnable_embedding_location, dataset, sim, base_prom
             f_out.write(f"{model} {dataset} {learnable_embedding_location} {sim} {correct}\n")
 
 
-# structural & domain generalization
-for model, learnable_embedding_location, dataset, sim in param_datas:
+# # structural & domain generalization
+# for model, learnable_embedding_location, dataset, sim in param_datas:
+#     eval_generative(model, learnable_embedding_location, dataset, sim, base_prompt=interleaved_prompt)
+#     eval_generative(model, learnable_embedding_location, dataset, sim, base_prompt=labeled_prompt)
+#     if learnable_embedding_location in ["lora"]:
+#         eval_generative(model, learnable_embedding_location, dataset, sim, base_prompt=interleaved_prompt, no_vision=True)
+#         eval_generative(model, learnable_embedding_location, dataset, sim, base_prompt=labeled_prompt, no_vision=True)
+#     if learnable_embedding_location in ["postfix", "full", "lora"]:
+#         eval_generative(model, learnable_embedding_location, dataset, sim, base_prompt=interleaved_prompt, cross_domain=True)
+
+# VQA models
+for model, learnable_embedding_location, dataset, sim in vqa_loras:
     eval_generative(model, learnable_embedding_location, dataset, sim, base_prompt=interleaved_prompt)
-    eval_generative(model, learnable_embedding_location, dataset, sim, base_prompt=labeled_prompt)
-    if learnable_embedding_location in ["lora"]:
-        eval_generative(model, learnable_embedding_location, dataset, sim, base_prompt=interleaved_prompt, no_vision=True)
-        eval_generative(model, learnable_embedding_location, dataset, sim, base_prompt=labeled_prompt, no_vision=True)
-    if learnable_embedding_location in ["postfix", "full", "lora"]:
-        eval_generative(model, learnable_embedding_location, dataset, sim, base_prompt=interleaved_prompt, cross_domain=True)

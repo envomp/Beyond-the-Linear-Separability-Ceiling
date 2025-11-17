@@ -2,13 +2,14 @@ import torch
 from torch import nn
 
 
-def apply_lora(nn_module, rank=8, target_modules=(), dropout=0):
+def apply_lora(nn_module, rank=8, target_modules=(), exclude_modules=(), dropout=0):
     from peft import LoraConfig, get_peft_model
 
     config = LoraConfig(
         r=rank,
         lora_alpha=rank,
         target_modules=target_modules,
+        exclude_modules=exclude_modules,
         lora_dropout=dropout)
     return get_peft_model(nn_module, config)
 

@@ -13,7 +13,9 @@ from huggingface_hub import login
 
 # login(token="hf_...")
 
-HOI_DATASET_PATH = "/home/e/Downloads/hake/"
-OPENWORLD_DATASET_PATH = "/home/e/Downloads/images/"
-BONGARD_RESULT_DIR = "/home/e/Downloads/bongard_PEFT/"
-PEFT_PATH = "/home/e/Downloads/bongard_PEFT/"
+HOI_DATASET_PATH = "/home/e/Downloads/bongard article/hake/"
+OPENWORLD_DATASET_PATH = "/home/e/Downloads/bongard article/images/"
+BONGARD_RESULT_DIR = "/home/e/Downloads/bongard article/bongard_PEFT/"
+PEFT_PATH = "/home/e/Downloads/bongard article/bongard_PEFT/"
+
+GQA_IMAGE_DIR = "/home/e/Downloads/allImages/images"

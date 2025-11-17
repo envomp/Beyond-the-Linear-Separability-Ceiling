@@ -709,7 +709,7 @@ def plot(baseline_scores):
     df = pd.DataFrame([x for x in baseline_scores if x['gen_direct']])
     model_display_names = {
         "phi": "Phi 3.5 vision", "pixtral": "Pixtral 12B", "gemma_4b": "Gemma3 4B",
-        "gemma_27b": "Gemma3 27B", "intern_14b": "InternVL 14B",
+        "gemma_27b": "Gemma3 27B", "intern_14b": "InternVL3 14B", "intern_78b": "InternVL3 78B",
         "qwen_7b": "Qwen2.5-VL 7B", "qwen_72b": "Qwen2.5-VL 72B"
     }
     df['model'] = df['model'].map(model_display_names).fillna(df['model'])

@@ -240,6 +240,7 @@ def find_image_token_ranges_qwen(inputs):
 
     return image_ranges
 
+
 def reentrant_checkpoint(f, *args):
     return checkpoint(f, *args, use_reentrant=True)
 
@@ -379,34 +380,20 @@ def load_qwen25_VL_72B():
     return qwen, processor
 
 
-def load_phi_3_5_vision(trainable_prompt_size=0, trainable_image_size=0, do_checkpoint=False, attn="flash_attention_2", num_crops=4, post_dispatch=lambda x: x):
-    from accelerate import load_checkpoint_and_dispatch, init_empty_weights
-
+def load_phi_3_5_vision(trainable_prompt_size=0, do_checkpoint=False, attn="flash_attention_2", num_crops=4, post_dispatch=lambda x: x):
     name = "microsoft/Phi-3.5-vision-instruct"
     revision = "dfc36d84e079f4d99c654f1cc489e0970f5917c0"
-    path = f"/gpfs/mariana/home/envomp/huggingface/hub/models--microsoft--Phi-3.5-vision-instruct/snapshots/{revision}"
-    # path = f"/media/e/data/huggingface/hub/models--microsoft--Phi-3.5-vision-instruct/snapshots/{revision}"
 
     if do_checkpoint:
-        with init_empty_weights():
-            phi = AutoModelForCausalLM.from_pretrained(name, trust_remote_code=True, revision=revision, _attn_implementation=attn)
-
-        phi = load_checkpoint_and_dispatch(
-            phi,
-            path,
-            device_map="auto",
-            no_split_module_classes=[],
-            max_memory={0: "20GiB", "cpu": "100GiB"},
-            dtype=torch.bfloat16
-        )
+        phi = AutoModelForCausalLM.from_pretrained(name, trust_remote_code=True, revision=revision, _attn_implementation=attn, torch_dtype=torch.bfloat16, device_map="cuda:0")
         for param in phi.parameters():
             param.requires_grad = False
         phi = post_dispatch(phi)
 
-        phi.model.gradient_checkpointing = True
-        phi.model._gradient_checkpointing_func = reentrant_checkpoint
+        phi._set_gradient_checkpointing(True)
+        phi._gradient_checkpointing_func = reentrant_checkpoint
     else:
-        phi = AutoModelForCausalLM.from_pretrained(name, trust_remote_code=True, revision=revision, _attn_implementation=attn, torch_dtype=torch.bfloat16, device_map="cuda")
+        phi = AutoModelForCausalLM.from_pretrained(name, trust_remote_code=True, revision=revision, _attn_implementation=attn, torch_dtype=torch.bfloat16, device_map="cuda:0")
         phi = post_dispatch(phi)
         for param in phi.parameters():
             param.requires_grad = False
@@ -417,13 +404,6 @@ def load_phi_3_5_vision(trainable_prompt_size=0, trainable_image_size=0, do_chec
         embedding_layer = phi.model.vision_embed_tokens
         phi.model.vision_embed_tokens = TrainableEmbedding(embedding_layer, dim=3072, trainable_prompt_size=trainable_prompt_size)
 
-    if trainable_image_size:
-        if do_checkpoint:
-            phi.model.vision_embed_tokens.img_processor.vision_model.encoder.gradient_checkpointing = True
-            phi.model.vision_embed_tokens.img_processor.vision_model.encoder._gradient_checkpointing_func = reentrant_checkpoint
-        embedding_layer = phi.model.vision_embed_tokens.img_processor
-        phi.model.vision_embed_tokens.img_processor = TrainableImage(embedding_layer, image_size=trainable_image_size, dim=trainable_image_size)
-
     print("Listing all trainable parameters:")
     for name, param in phi.named_parameters():
         if param.requires_grad:
@@ -431,10 +411,26 @@ def load_phi_3_5_vision(trainable_prompt_size=0, trainable_image_size=0, do_chec
     return phi, processor
 
 
-def lora_post_dispatch(llm):
+def lora_post_dispatch(llm, ignore_vision=False):
     proj_keywords = ['q_proj', 'k_proj', 'v_proj', 'o_proj', 'out_proj', 'qkv_proj', 'fc1', 'fc2', 'up_proj', 'gate_up_proj', 'down_proj', 'gate_proj']
+
+    if ignore_vision:
+        vision_keywords = ["vision_embed_tokens", "vision_model"]
+        llm_target_modules = []
+
+        for name, module in llm.named_modules():
+            if any(vision_key in name for vision_key in vision_keywords):
+                continue
+            if any(name.endswith(proj_key) for proj_key in proj_keywords):
+                llm_target_modules.append(name)
+
+        print(f"Found {len(llm_target_modules)} targetable LLM modules.")
+        target_modules_to_use = llm_target_modules
+    else:
+        target_modules_to_use = proj_keywords  # attention & ffn proj for vision and language stack
+
     llm.enable_input_require_grads()
-    llm = apply_lora(llm, target_modules=proj_keywords)  # attention & ffn proj for vision and language stack
+    llm = apply_lora(llm, target_modules=target_modules_to_use)
     llm = materialize_lora_weights(llm)
     return llm
 

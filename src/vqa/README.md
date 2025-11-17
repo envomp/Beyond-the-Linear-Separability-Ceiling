@@ -1,0 +1,1 @@
+download all folders from https://cs.stanford.edu/people/dorarad/gqa/download.html and respective variables in create_ds.py

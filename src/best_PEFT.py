@@ -33,3 +33,10 @@ param_datas = {
     ("gemma3_4b", "lora", "openworld", False): "sim_openworld_gemma3_4b_lora_c_0.0_e_18_t_0_acc_95_seed_9188.pt",
     ("gemma3_4b", "lora", "openworld", True): "sim_openworld_gemma3_4b_lora_c_0.4_e_19_t_0_acc_99_seed_13.pt",
 }
+
+vqa_loras = {
+    ("phi", "lora", "openworld", "gqa_c_0.4"): "sim_gqa_phi_lora_c_0.4_e_0_acc_8819_seed_941.pt",
+    ("phi", "lora", "openworld", "gqa_c_0.1"): "sim_gqa_phi_lora_c_0.1_e_0_acc_9873_seed_952.pt",
+    ("phi", "lora", "openworld", "gqa_c_0.01"): "sim_gqa_phi_lora_c_0.01_e_0_acc_9728_seed_1012.pt",
+    ("phi", "lora", "openworld", "gqa_nt"): "sim_gqa_phi_lora_c_0.0_e_0_acc_9847_seed_7894.pt",
+}

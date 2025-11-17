@@ -4,12 +4,12 @@ from scripts.hf_models import load_weights, lora_post_dispatch, resize_images
 from scripts.hf_models import find_image_token_ranges_phi, find_image_token_ranges_pixtral, find_image_token_ranges_gemma
 from transformers import GenerationConfig
 from PIL import Image
-from scripts.eval_similarity import evaluate_pairs_b
+from scripts.eval_similarity import evaluate_pairs_b, evaluate_pairs_s
 from processor import *
-from best_PEFT import param_datas
+from best_PEFT import param_datas, vqa_loras
 
 
-def eval_similarity(model, learnable_embedding_location, dataset, sim, layer, base_prompt=interleaved_prompt, cross_domain=False, no_vision=False):
+def eval_similarity(model, learnable_embedding_location, dataset, sim, layer, base_prompt=interleaved_prompt, cross_domain=False, no_vision=False, sim_n="_b"):
     if dataset == "hoi":
         dataset_path = HOI_DATASET_PATH
     elif dataset == "openworld":
@@ -25,7 +25,11 @@ def eval_similarity(model, learnable_embedding_location, dataset, sim, layer, ba
         elif dataset == "hoi":
             load_dataset = "openworld"
 
-    param_data = torch.load(PEFT_PATH + param_datas[(model, learnable_embedding_location, load_dataset, sim)], weights_only=True)
+    param_key = (model, learnable_embedding_location, load_dataset, sim)
+    if param_key in param_datas.keys():
+        param_data = torch.load(PEFT_PATH + param_datas[param_key], weights_only=True)
+    elif param_key in vqa_loras.keys():
+        param_data = torch.load(PEFT_PATH + vqa_loras[param_key], weights_only=True)
     param_name = None
 
     resolution = 224
@@ -76,13 +80,13 @@ def eval_similarity(model, learnable_embedding_location, dataset, sim, layer, ba
 
     _, _, test = get_ds(dataset)
 
-    _sim = '_sim' if sim else ''
+    _sim = ('_sim' if sim else '') if isinstance(type, bool) else sim
     _no_vision = '_no_vision' if no_vision else ''
     _cross_domain = '_cross_domain' if cross_domain else ''
     _res = f"_{resolution}" if resolution != 224 else ""
     _promt = f"_{base_prompt.__name__}" if base_prompt.__name__ != "interleaved_prompt" else ""
     layer_name = "final" if layer == -1 else "vision" if layer == 0 else str(layer)
-    run_filename = f"{model}{_cross_domain}_{dataset}{_sim}_{learnable_embedding_location}{_no_vision}{_res}_similarity_{layer_name}{_promt}.txt"
+    run_filename = f"{model}{_cross_domain}_{dataset}{_sim}_{learnable_embedding_location}{_no_vision}{_res}_similarity{sim_n}_{layer_name}{_promt}.txt"
     full_file_path = os.path.join(PEFT_PATH, run_filename)
 
     with open(full_file_path, 'w', encoding='utf-8', buffering=1) as f_out:
@@ -115,13 +119,21 @@ def eval_similarity(model, learnable_embedding_location, dataset, sim, layer, ba
                 for i in range(cat_imgs + 1, 2 * cat_imgs + 1):
                     cat1_imgs.append(layer_hidden_states[indexes[0][i][0]:indexes[0][i][1], :])
                 maximize_imgs, minimize_imgs = (cat2_imgs, cat1_imgs) if test_cat == "cat_2" else (cat1_imgs, cat2_imgs)
-                max_cat, min_cat = torch.cat(maximize_imgs, dim=0), torch.cat(minimize_imgs, dim=0)
-                pairs = [(None, [test_img]), (None, [max_cat]), (None, [min_cat])]
-                if evaluate_pairs_b(pairs, True, f_out=f_out):
-                    correct[j] += 1
-                    results["correct"][test_cat] += 1
-                else:
-                    results["incorrect"][test_cat] += 1
+                if sim_n == "_b":
+                    max_cat, min_cat = torch.cat(maximize_imgs, dim=0), torch.cat(minimize_imgs, dim=0)
+                    pairs = [(None, [test_img]), (None, [max_cat]), (None, [min_cat])]
+                    if evaluate_pairs_b(pairs, True, f_out=f_out):
+                        correct[j] += 1
+                        results["correct"][test_cat] += 1
+                    else:
+                        results["incorrect"][test_cat] += 1
+                elif sim_n == "_s":
+                    pairs = [(None, [test_img]), (None, maximize_imgs), (None, minimize_imgs)]
+                    if evaluate_pairs_s(pairs, True, f_out=f_out):
+                        correct[j] += 1
+                        results["correct"][test_cat] += 1
+                    else:
+                        results["incorrect"][test_cat] += 1
 
             split_correct = results["correct"]["cat_1"] + results["correct"]["cat_2"]
             split_incorrect = results["incorrect"]["cat_1"] + results["incorrect"]["cat_2"]
@@ -139,15 +151,19 @@ def eval_similarity(model, learnable_embedding_location, dataset, sim, layer, ba
             f_out.write(f"{model} {dataset} {learnable_embedding_location} {sim} {layer} {correct}\n")
 
 
-# structural generalization
-for model, learnable_embedding_location, dataset, sim in param_datas:
-    for layer in [0, -1]:
-        eval_similarity(model, learnable_embedding_location, dataset, sim, layer, base_prompt=interleaved_prompt)
-        eval_similarity(model, learnable_embedding_location, dataset, sim, layer, base_prompt=labeled_prompt)
-        if learnable_embedding_location in ["postfix", "full", "lora"]:
-            eval_similarity(model, learnable_embedding_location, dataset, sim, layer, base_prompt=interleaved_prompt, cross_domain=True)
+# # structural generalization
+# for model, learnable_embedding_location, dataset, sim in param_datas:
+#     for layer in [0, -1]:
+#         eval_similarity(model, learnable_embedding_location, dataset, sim, layer, base_prompt=interleaved_prompt)
+#         eval_similarity(model, learnable_embedding_location, dataset, sim, layer, base_prompt=labeled_prompt)
+#         if learnable_embedding_location in ["postfix", "full", "lora"]:
+#             eval_similarity(model, learnable_embedding_location, dataset, sim, layer, base_prompt=interleaved_prompt, cross_domain=True)
+#
+# # no_vision
+# for layer in [0, -1]:
+#     eval_similarity("phi", "lora", "openworld", False, layer, base_prompt=interleaved_prompt, no_vision=True)
+#     eval_similarity("phi", "lora", "openworld", False, layer, base_prompt=labeled_prompt, no_vision=True)
 
-# no_vision
-for layer in [0, -1]:
-    eval_similarity("phi", "lora", "openworld", False, layer, base_prompt=interleaved_prompt, no_vision=True)
-    eval_similarity("phi", "lora", "openworld", False, layer, base_prompt=labeled_prompt, no_vision=True)
+# VQA models
+for model, learnable_embedding_location, dataset, sim in vqa_loras:
+    eval_similarity(model, learnable_embedding_location, dataset, sim, -1, base_prompt=interleaved_prompt)
