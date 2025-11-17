@@ -4,6 +4,10 @@ pip install -r requirements.txt
 pip install flash-attn --no-build-isolation
 ```
 
+Concepts illustrated:
+![concepts_illustrated](images/concept_illustration.png)
+
+SoTA models:
 ![LSC_benchmark.png](images/LSC_benchmark.png)
 
 # Datasets

@@ -12,11 +12,6 @@ import torch.nn.functional as F
 import math
 
 seed = random.randint(1, 10000)
-print("Fixing seed to: ", seed)
-random.seed(seed)
-torch.manual_seed(seed)
-torch.cuda.manual_seed(seed)
-
 dataset = "none"  # hoi or openworld
 result_dir = BONGARD_RESULT_DIR
 model = "none"  # phi or pixtral or gemma3_4b or gemma3_27b
@@ -33,9 +28,14 @@ smooth_cl = False
 train_limit = 500
 val_limit = 25
 resolution = 224
+lora_on_vision=True
 
 exec(open('configurator.py').read())
 
+print("Fixing seed to: ", seed)
+random.seed(seed)
+torch.manual_seed(seed)
+torch.cuda.manual_seed(seed)
 
 if dataset == "hoi":
     dataset_path = HOI_DATASET_PATH
@@ -47,7 +47,11 @@ else:
 print(f"params: {dataset} {model} {learnable_embedding_location}")
 
 tsize = trainable_prompt_size * 2 if learnable_embedding_location == "full" else trainable_prompt_size
-post_dispatch = lora_post_dispatch if learnable_embedding_location == "lora" else lambda x: x
+if lora_on_vision:
+    _lora_dispatch = lora_post_dispatch
+else:
+    _lora_dispatch = lambda x: lora_post_dispatch(x, ignore_vision=True)
+post_dispatch = _lora_dispatch if learnable_embedding_location == "lora" else lambda x: x
 
 if model == "phi":
     num_crops = 1 if learnable_embedding_location == "lora" else 4

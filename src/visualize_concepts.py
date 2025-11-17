@@ -60,7 +60,7 @@ def plot_base(ax):
 ax = axes[0]
 plot_base(ax)
 ax.set_ylabel('Reduced dimension 2', fontsize=12)
-ax.set_title('(a) LSC probe', fontsize=12)
+ax.set_title('(a) LSC probe', fontsize=14)
 
 # Plot a query where LSC is correct
 ax.scatter(query_lsc_correct[0], query_lsc_correct[1], c='green', marker='P', s=350, edgecolors='k', zorder=12, label='Query ($\mathbf{v}_Q$)')
@@ -69,7 +69,7 @@ ax.text(3.9, 3.8, "LSC guess: correct", ha='right', va='top', fontsize=11, color
 # --- Panel (b): Alignment Gap ---
 ax = axes[1]
 plot_base(ax)
-ax.set_title('(b) Alignment gap ($acc_{gen} < LSC$)', fontsize=12)
+ax.set_title('(b) Alignment gap', fontsize=14)
 
 # Plot the same query where LSC is correct
 ax.scatter(query_lsc_correct[0], query_lsc_correct[1], c='green', marker='P', s=350, edgecolors='k', zorder=12, label='Query ($\mathbf{v}_Q$)')
@@ -80,7 +80,7 @@ ax.text(3.9, 3.5, "Generative output: wrong", ha='right', va='top', fontsize=11,
 # --- Panel (c): Surpassing the Ceiling ---
 ax = axes[2]
 plot_base(ax)
-ax.set_title('(c) Surpassing the ceiling ($acc_{gen} > LSC$)', fontsize=12)
+ax.set_title('(c) Surpassing the ceiling', fontsize=14)
 
 # Plot a query where LSC fails
 ax.scatter(query_lsc_fails[0], query_lsc_fails[1], c='green', marker='P', s=350, edgecolors='k', zorder=12, label='Query ($\mathbf{v}_Q$)')

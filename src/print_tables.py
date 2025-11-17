@@ -728,17 +728,17 @@ def plot(baseline_scores):
     df_plot = df.melt(
         id_vars=['model', 'dataset', 'sim_vision'],
         value_vars=['gen_direct', 'gen_cot'],
-        var_name='Prompting Method',
-        value_name='Generative Accuracy'
+        var_name='Prompting method',
+        value_name='Generative accuracy'
     )
-    df_plot['Prompting Method'] = df_plot['Prompting Method'].str.replace('gen_', '').str.title()
-    df_plot.dropna(subset=['sim_vision', 'Generative Accuracy'], inplace=True)
+    df_plot['Prompting Method'] = df_plot['Prompting method'].str.replace('gen_', '').str.title()
+    df_plot.dropna(subset=['sim_vision', 'Generative accuracy'], inplace=True)
 
     sns.set_theme(style="whitegrid", context="talk")
     fig, axes = plt.subplots(1, 2, figsize=(12, 7), sharey=True)
     fig.suptitle('Generative performance vs. linear separability', fontsize=16, fontweight='bold')
 
-    all_vals = df_plot['sim_vision'].tolist() + df_plot['Generative Accuracy'].tolist()
+    all_vals = df_plot['sim_vision'].tolist() + df_plot['Generative accuracy'].tolist()
     lim_min = np.nanmin(all_vals) - 2
     lim_max = 100
 
@@ -755,15 +755,15 @@ def plot(baseline_scores):
         upper_bound = x_vals + np.sqrt(2) * margin_of_error
 
         ax.fill_between(x_vals, upper_bound, lim_max, color='green', alpha=0.15, label='Surpassed')
-        ax.fill_between(x_vals, upper_bound, 0, color='red', alpha=0.15, label='Alignment bottleneck')
+        ax.fill_between(x_vals, upper_bound, 0, color='red', alpha=0.15, label='Alignment gap')
 
-        sns.scatterplot(data=data_subset, x='sim_vision', y='Generative Accuracy',
-                        hue='model', style='Prompting Method', s=150, alpha=0.8, palette='colorblind', ax=ax, zorder=3)
+        sns.scatterplot(data=data_subset, x='sim_vision', y='Generative accuracy',
+                        hue='model', style='Prompting method', s=150, alpha=0.8, palette='colorblind', ax=ax, zorder=3)
 
         ax.set_title(dataset_display_names[dataset_name], fontsize=14)
-        ax.set_xlabel('Linear Classification Accuracy (%)', fontsize=12)
+        ax.set_xlabel('Linear probe classification accuracy (%)', fontsize=12)
         if i == 0:
-            ax.set_ylabel('Generative Accuracy (%)', fontsize=14)
+            ax.set_ylabel('Generative accuracy (%)', fontsize=14)
 
         ax.set_xlim(lim_min, lim_max)
         ax.set_ylim(lim_min, lim_max)
@@ -784,10 +784,10 @@ def plot(baseline_scores):
     plt.show()
 
 
-# scores, ceiling = agreement_baselines()
-# print(ceiling)
-# print(scores)
-# plot(scores)
+scores, ceiling = agreement_baselines()
+print(ceiling)
+print(scores)
+plot(scores)
 # print(baseline_table_latex(scores))
 
 # accuracies = imbalances_PEFT()
