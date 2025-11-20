@@ -1,0 +1,1 @@
+https://github.com/NVlabs/Bongard-HOI/blob/master/assets/dataset.md

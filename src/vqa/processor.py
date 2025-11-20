@@ -4,6 +4,7 @@ import json
 import os
 from transformers.image_processing_utils import BatchFeature
 import torch
+
 alphabet = string.ascii_uppercase
 
 
@@ -21,9 +22,7 @@ def construct_prompt_phi(question: str, choices_with_letters: dict, postfix="") 
     return prompt
 
 
-def process_choices(vqa_block: dict) -> (dict, str):
-    correct_answer_str = vqa_block['correct_answer']
-    choices_list = vqa_block['all_answers']
+def process_choices(correct_answer_str, choices_list) -> (dict, str):
     random.shuffle(choices_list)
     choices_with_letters = {}
     correct_letter = None
@@ -55,7 +54,7 @@ def extract_conclusion(text: str, choices: list) -> str:
     return "INVALID"
 
 
-def load_gqa_training_data(json_file: str, image_dir: str):
+def load_gqa_contrastive_training_data(json_file: str, image_dir: str):
     training_data_list = []
     with open(json_file, 'r') as f:
         data = json.load(f)
@@ -66,10 +65,10 @@ def load_gqa_training_data(json_file: str, image_dir: str):
 
         min_pair = item['minimize_pair']
         max_pair = item['maximize_pair']
-        min_choices_1, min_letter_1 = process_choices(min_pair['vqa_img1'])
-        min_choices_2, min_letter_2 = process_choices(min_pair['vqa_img2'])
-        max_choices_1, max_letter_1 = process_choices(max_pair['vqa_img1'])
-        max_choices_2, max_letter_2 = process_choices(max_pair['vqa_img2'])
+        min_choices_1, min_letter_1 = process_choices(min_pair['vqa_img1']['correct_answer'], min_pair['vqa_img1']['all_answers'])
+        min_choices_2, min_letter_2 = process_choices(min_pair['vqa_img2']['correct_answer'], min_pair['vqa_img2']['all_answers'])
+        max_choices_1, max_letter_1 = process_choices(min_pair['vqa_img1']['correct_answer'], min_pair['vqa_img1']['all_answers'])
+        max_choices_2, max_letter_2 = process_choices(min_pair['vqa_img2']['correct_answer'], min_pair['vqa_img2']['all_answers'])
 
         training_data_list.append({
             "img1_path": img1_path,
@@ -91,6 +90,40 @@ def load_gqa_training_data(json_file: str, image_dir: str):
 
     print(f"Loaded {len(training_data_list)} training pairs.")
     return training_data_list
+
+
+def load_hoi_prototype_training_data(json_file: str, image_dir: str, split_prefix="train"):
+    print(f"Loading prototype training data from {json_file} ({split_prefix}... splits)...")
+    with open(json_file, 'r') as f:
+        data = json.load(f)
+
+    splits = []
+
+    for split_name, dataset in data.items():
+        if not split_name.startswith(split_prefix):
+            continue
+
+        training_data_list = []
+
+        for item in dataset:
+            meta = item['meta']
+            support_sets = item['support_sets']
+            formatted_groups = []
+            for s_set in support_sets:
+                paths = [os.path.join(image_dir, img_rel_path) for img_rel_path in s_set['image_ids']]
+                formatted_groups.append({
+                    "answer": s_set['prototype_answer'],
+                    "paths": paths
+                })
+
+            training_data_list.append({
+                "question": meta['question'],
+                "groups": formatted_groups
+            })
+
+        print(f"Loaded {len(training_data_list)} prototype groups for training.")
+        splits.append(training_data_list)
+    return splits
 
 
 def pad_left(seqs: list[torch.Tensor], pad_token_id: int) -> torch.Tensor:

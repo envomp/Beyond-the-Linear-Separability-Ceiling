@@ -1,6 +1,6 @@
 from scripts.conf import *
 from transformers import CLIPProcessor, CLIPModel, CLIPTokenizer
-from baseline import load_gqa_data, load_aokvqa_data
+from baseline import load_gqa_contrastive_data, load_hoi_prototype_data, load_aokvqa_data, load_scienceqa_data, load_pope_data
 from PIL import Image
 import torch
 import torch.nn.functional as F
@@ -12,14 +12,18 @@ model = CLIPModel.from_pretrained(model_id).to(device)
 processor = CLIPProcessor.from_pretrained(model_id)
 tokenizer = CLIPTokenizer.from_pretrained(model_id)
 
-DATASET_TO_RUN = "aokvqa"  # aokvqa or gqa
+DATASET_TO_RUN = "pope"  # aokvqa or gqa or hoi or scienceqa or pope
 
 if DATASET_TO_RUN == "gqa":
-    vqa_dataset = load_gqa_data("gqa_contrastive_pairs_eval.json", GQA_IMAGE_DIR)
-    dataset_name_str = "gqa"
+    vqa_dataset = load_gqa_contrastive_data("gqa_contrastive_pairs_eval.json", GQA_IMAGE_DIR)
 elif DATASET_TO_RUN == "aokvqa":
     vqa_dataset = load_aokvqa_data(split="validation")
-    dataset_name_str = "aokvqa"
+elif DATASET_TO_RUN == "hoi":
+    vqa_dataset = load_hoi_prototype_data("bongard_hoi_vqa.json", HOI_DATASET_PATH, split_prefix="test")[0]
+elif DATASET_TO_RUN == "scienceqa":
+    vqa_dataset = load_scienceqa_data(split="test")
+elif DATASET_TO_RUN == "pope":
+    vqa_dataset = load_pope_data(split="test")
 else:
     raise ValueError(f"Unknown DATASET_TO_RUN: {DATASET_TO_RUN}")
 
@@ -50,17 +54,23 @@ for item in vqa_dataset:
     logits_per_image = image_features_norm @ text_features_norm.T
     prediction_idx = logits_per_image.argmax().item()
     predicted_letter = choice_letters[prediction_idx]
+    predicted_letter = "A"
 
     if predicted_letter == item['correct_letter']:
         correct_predictions += 1
 
 lsc_accuracy = (correct_predictions / total_samples) * 100 if total_samples > 0 else 0
 
-print("\n--- VQA LSC Evaluation Results ---")
-print(f"Dataset: {dataset_name_str}")
+print("\n--- VQA LSC evaluation results ---")
+print(f"Dataset: {DATASET_TO_RUN}")
 print(f"Model: {model_id}\n")
-print(f"VQA LSC Accuracy: {lsc_accuracy:.2f}% ({correct_predictions}/{total_samples})")
+print(f"VQA LSC accuracy: {lsc_accuracy:.2f}% ({correct_predictions}/{total_samples})")
 
+# we converted hoi and pope tasks from binary classification task to multiple choice tasks operating on a single image,
+# where only 1 answer is correct and 3 other are wrong
 
-# GQA         64.80% (7307/11276)
-# A-OKVQA     61.14% (700/1145)
+# HOI:         78.75% (6300/8000)    first: 25.04% (2003/8000)    baseline: 78.89%
+# POPE:        62.53% (938/1500)     first: 25.00% (375/1500)     baseline: 79.65%
+# GQA:         64.80% (7307/11276)   first: 30.34% (3421/11276)   baseline: 77.76%
+# A-OKVQA:     61.14% (700/1145)     first: 24.54% (281/1145)     baseline: 74.34%
+# ScienceQA:   46.21% (932/2017)     first: 35.35% (713/2017)     baseline: 87.42%

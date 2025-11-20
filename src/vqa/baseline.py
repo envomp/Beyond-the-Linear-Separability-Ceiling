@@ -1,6 +1,7 @@
 import os
 import json
 import torch
+import random
 
 from PIL import Image
 from tqdm import tqdm
@@ -11,7 +12,47 @@ from scripts.hf_models import inference
 from processor import process_choices, extract_conclusion, alphabet
 
 
-def load_gqa_data(json_file: str, image_dir: str):
+def load_hoi_prototype_data(json_file: str, image_dir: str, split_prefix="train"):
+    """
+    Loads VQA data from the grouped support-set format.
+    Flattens N groups * M images into individual samples.
+    """
+    print(f"Loading VQA prototype data from {json_file} ({split_prefix} split)...")
+    with open(json_file, 'r') as f:
+        data = json.load(f)
+
+    splits = []
+    for split_name, dataset in data.items():
+        if not split_name.startswith(split_prefix):
+            continue
+
+        dataset = data[split_name]
+        flat_vqa_list = []
+        for group in tqdm(dataset, desc="Flattening HOI samples"):
+            meta_data = group['meta']
+            question = meta_data['question']
+            support_sets = group['support_sets']
+
+            group_options_pool = [s['prototype_answer'].replace("++", "+").replace("+", " ") for s in support_sets]
+            for subset in support_sets:
+                correct_ans_text = subset['prototype_answer'].replace("++", "+").replace("+", " ")
+                for img_rel_path in subset['image_ids']:
+                    image_path = os.path.join(image_dir, img_rel_path)
+                    choices_with_letters, correct_letter = process_choices(correct_ans_text, group_options_pool)
+                    flat_vqa_list.append({
+                        "image_path": image_path,
+                        "question": question,
+                        "choices_with_letters": choices_with_letters,
+                        "object_concept": correct_ans_text,
+                        "correct_letter": correct_letter,
+                    })
+        print(f"Loaded {len(flat_vqa_list)} individual VQA samples for split {split_name}.")
+        splits.append(flat_vqa_list)
+
+    return splits
+
+
+def load_gqa_contrastive_data(json_file: str, image_dir: str):
     print(f"Loading and flattening VQA data from {json_file}...")
     flat_vqa_list = []
 
@@ -28,7 +69,7 @@ def load_gqa_data(json_file: str, image_dir: str):
 
         for img_id, question, vqa_block, pair_type in pairs_to_process:
             image_path = os.path.join(image_dir, f"{img_id}.jpg")
-            choices_with_letters, correct_letter = process_choices(vqa_block)
+            choices_with_letters, correct_letter = process_choices(vqa_block['correct_answer'], vqa_block['all_answers'])
 
             flat_vqa_list.append({
                 "image_path": image_path,
@@ -42,8 +83,52 @@ def load_gqa_data(json_file: str, image_dir: str):
     print(f"Loaded {len(flat_vqa_list)} individual VQA samples.")
     return flat_vqa_list
 
+def load_pope_data(split="test"):
+    dataset = load_dataset("lmms-lab/POPE", split=split)
 
-def load_aokvqa_data(split="validation", max_samples=None):
+    grouped_data = defaultdict(lambda: {'image': None, 'pos': [], 'neg': []})
+    for item in dataset:
+        img_src = item['image_source']
+        if grouped_data[img_src]['image'] is None:
+            grouped_data[img_src]['image'] = item['image']
+        obj_name = item['question'].replace(" in the image?", "").replace("Is there a ", "")
+        if item['answer'].lower() == 'yes':
+            grouped_data[img_src]['pos'].append(obj_name)
+        else:
+            grouped_data[img_src]['neg'].append(obj_name)
+
+    flat_vqa_list = []
+    for img_src, data in tqdm(grouped_data.items(), desc="Constructing MC Questions"):
+        if len(data['neg']) < 3:
+            continue
+        distractors = data['neg'][:3]
+        target_positives = data['pos'][:3]
+        for target_obj in target_positives:
+            options_text = [target_obj] + distractors
+            random.shuffle(options_text)
+
+            choices_with_letters = {}
+            correct_letter = None
+            for i, opt in enumerate(options_text):
+                letter = alphabet[i]
+                choices_with_letters[letter] = opt
+                if opt == target_obj:
+                    correct_letter = letter
+
+            flat_vqa_list.append({
+                "image_path": None,
+                "image_object": data['image'].convert('RGB'),
+                "question": "Which of the following objects is present in the image?",
+                "choices_with_letters": choices_with_letters,
+                "correct_letter": correct_letter,
+                "meta_img_id": img_src
+            })
+
+    print(f"Converted POPE into {len(flat_vqa_list)} Multiple Choice samples.")
+    return flat_vqa_list
+
+
+def load_aokvqa_data(split="validation", max_samples=None): # test has missing answer
     print(f"Loading and formatting A-OKVQA data (config: multiple_choice, split: {split})...")
     dataset = load_dataset("HuggingFaceM4/A-OKVQA", split=split)
     if max_samples:
@@ -72,6 +157,40 @@ def load_aokvqa_data(split="validation", max_samples=None):
         })
 
     print(f"Loaded {len(flat_vqa_list)} individual A-OKVQA samples.")
+    return flat_vqa_list
+
+def load_scienceqa_data(split="test", only_with_images=True):
+    print(f"Loading and formatting ScienceQA data (split: {split})...")
+    dataset = load_dataset("derek-thomas/ScienceQA", split=split)
+    if only_with_images:
+        dataset = dataset.filter(lambda x: x['image'] is not None)
+
+    flat_vqa_list = []
+    for item in tqdm(dataset, desc="Processing ScienceQA samples"):
+        choices_list = item['choices']
+        correct_idx = item['answer']
+
+        choices_with_letters = {}
+        correct_letter = None
+        for i, choice in enumerate(choices_list):
+            letter = alphabet[i]
+            choices_with_letters[letter] = choice
+            if i == correct_idx:
+                correct_letter = letter
+
+        img_obj = item['image']
+        if img_obj is not None:
+            img_obj = img_obj.convert('RGB')
+
+        flat_vqa_list.append({
+            "image_path": None,
+            "image_object": img_obj,
+            "question": item['question'],
+            "choices_with_letters": choices_with_letters,
+            "correct_letter": correct_letter,
+        })
+
+    print(f"Loaded {len(flat_vqa_list)} individual ScienceQA samples.")
     return flat_vqa_list
 
 

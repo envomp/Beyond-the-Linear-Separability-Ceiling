@@ -1,6 +1,5 @@
 from scripts.conf import *
 import random
-import math
 from PIL import Image
 
 import torch
@@ -10,15 +9,10 @@ import torch.nn.functional as F
 from transformers.image_processing_utils import BatchFeature
 
 from scripts.hf_models import load_phi_3_5_vision, lora_post_dispatch, resize_images, find_image_token_ranges_phi
-from processor import construct_prompt_phi, load_gqa_training_data, stack_and_pad_inputs
-from baseline import load_gqa_data, run_validation
+from processor import construct_prompt_phi, load_gqa_contrastive_training_data, stack_and_pad_inputs
+from baseline import load_gqa_contrastive_data, run_validation
 
 seed = random.randint(1, 10000)
-print(f"Fixing seed to: {seed}")
-random.seed(seed)
-torch.manual_seed(seed)
-torch.cuda.manual_seed(seed)
-
 model = "phi"
 train_json = "gqa_contrastive_pairs_train.json"
 eval_json = "gqa_contrastive_pairs_eval.json"
@@ -32,6 +26,10 @@ resolution = 224
 
 exec(open('configurator.py').read())
 
+print(f"Fixing seed to: {seed}")
+random.seed(seed)
+torch.manual_seed(seed)
+torch.cuda.manual_seed(seed)
 
 def validate_model(llm, processor, vqa_dataset, get_full_prompt_f):
     results = run_validation(llm, processor, vqa_dataset, get_full_prompt_f)
@@ -46,8 +44,8 @@ llm, processor = load_phi_3_5_vision(post_dispatch=post_dispatch, do_checkpoint=
 if processor.tokenizer.pad_token_id is None:
     processor.tokenizer.pad_token = processor.tokenizer.eos_token
 pad_token_id = processor.tokenizer.pad_token_id
-train_data = load_gqa_training_data(train_json, GQA_IMAGE_DIR)
-val_data = load_gqa_data(eval_json, GQA_IMAGE_DIR)
+train_data = load_gqa_contrastive_training_data(train_json, GQA_IMAGE_DIR)
+val_data = load_gqa_contrastive_data(eval_json, GQA_IMAGE_DIR)
 
 trainable_params = [p for n, p in llm.named_parameters() if p.requires_grad]
 print(f"Training {len(trainable_params)} parameters.")
