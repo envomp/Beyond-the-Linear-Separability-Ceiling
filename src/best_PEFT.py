@@ -43,4 +43,11 @@ c_scan_phi_loras = {
     ("phi", "lora", "hoi", "c=0.4"): "sim_hoi_phi_lora_c_0.4_e_1_t_0_acc_79_82_79_81_seed_123.pt",
     ("phi", "lora", "hoi", "c=0.8"): "sim_hoi_phi_lora_c_0.8_e_0_t_0_acc_82_80_75_79_seed_123.pt",
     ("phi", "lora", "hoi", "c=1.6"): "sim_hoi_phi_lora_c_1.6_e_2_t_0_acc_79_81_80_76_seed_123.pt",
+    ("phi", "lora", "hoi", "cl=0.025"): "sim_hoi_phi_lora_cl_0.025_e_1_t_0_acc_78_77_80_83_seed_123.pt",
+    ("phi", "lora", "hoi", "cl=0.05"): "sim_hoi_phi_lora_cl_0.05_e_1_t_0_acc_81_80_81_80_seed_123.pt",
+    ("phi", "lora", "hoi", "cl=0.1"): "sim_hoi_phi_lora_cl_0.1_e_1_t_0_acc_81_79_83_78_seed_123.pt",
+    ("phi", "lora", "hoi", "cl=0.2"): "sim_hoi_phi_lora_cl_0.2_e_1_t_0_acc_78_82_81_78_seed_123.pt",
+    ("phi", "lora", "hoi", "cl=0.4"): "sim_hoi_phi_lora_cl_0.4_e_2_t_0_acc_77_79_80_77_seed_123.pt",
+    ("phi", "lora", "hoi", "cl=0.8"): "sim_hoi_phi_lora_cl_0.8_e_2_t_0_acc_80_77_78_75_seed_123.pt",
+    ("phi", "lora", "hoi", "cl=1.6"): "sim_hoi_phi_lora_cl_1.6_e_2_t_0_acc_78_73_78_73_seed_123.pt",
 }
