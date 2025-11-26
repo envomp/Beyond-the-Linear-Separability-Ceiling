@@ -2,7 +2,7 @@ from scripts.conf import *
 from scripts.hf_models import load_phi_3_5_vision, load_pixtral_12B, load_gemma3_4B
 from scripts.hf_models import inference, load_weights, lora_post_dispatch
 from processor import *
-from best_PEFT import param_datas, vqa_loras
+from best_PEFT import param_datas, c_scan_phi_loras
 
 
 def eval_generative(model, learnable_embedding_location, dataset, sim, base_prompt=interleaved_prompt, cross_domain=False, no_vision=False):
@@ -24,8 +24,8 @@ def eval_generative(model, learnable_embedding_location, dataset, sim, base_prom
     param_key = (model, learnable_embedding_location, load_dataset, sim)
     if param_key in param_datas.keys():
         param_data = torch.load(PEFT_PATH + param_datas[param_key], weights_only=True)
-    elif param_key in vqa_loras.keys():
-        param_data = torch.load(PEFT_PATH + vqa_loras[param_key], weights_only=True)
+    elif param_key in c_scan_phi_loras.keys():
+        param_data = torch.load(PEFT_PATH + c_scan_phi_loras[param_key], weights_only=True)
     param_name = None
 
     resolution = 224
@@ -132,6 +132,7 @@ def eval_generative(model, learnable_embedding_location, dataset, sim, base_prom
 #     if learnable_embedding_location in ["postfix", "full", "lora"]:
 #         eval_generative(model, learnable_embedding_location, dataset, sim, base_prompt=interleaved_prompt, cross_domain=True)
 
-# VQA models
-for model, learnable_embedding_location, dataset, sim in vqa_loras:
+# C scan
+for model, learnable_embedding_location, dataset, sim in c_scan_phi_loras:
     eval_generative(model, learnable_embedding_location, dataset, sim, base_prompt=interleaved_prompt)
+    eval_generative(model, learnable_embedding_location, dataset, sim, base_prompt=labeled_prompt)

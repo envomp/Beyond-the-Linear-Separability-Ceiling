@@ -52,37 +52,6 @@ def load_hoi_prototype_data(json_file: str, image_dir: str, split_prefix="train"
     return splits
 
 
-def load_gqa_contrastive_data(json_file: str, image_dir: str):
-    print(f"Loading and flattening VQA data from {json_file}...")
-    flat_vqa_list = []
-
-    with open(json_file, 'r') as f:
-        data = json.load(f)
-
-    for item in tqdm(data, desc="Processing GQA pairs"):
-        pairs_to_process = [
-            (item['img_id1'], item['minimize_pair']['question'], item['minimize_pair']['vqa_img1'], 'minimize'),
-            (item['img_id2'], item['minimize_pair']['question'], item['minimize_pair']['vqa_img2'], 'minimize'),
-            (item['img_id1'], item['maximize_pair']['question'], item['maximize_pair']['vqa_img1'], 'maximize'),
-            (item['img_id2'], item['maximize_pair']['question'], item['maximize_pair']['vqa_img2'], 'maximize')
-        ]
-
-        for img_id, question, vqa_block, pair_type in pairs_to_process:
-            image_path = os.path.join(image_dir, f"{img_id}.jpg")
-            choices_with_letters, correct_letter = process_choices(vqa_block['correct_answer'], vqa_block['all_answers'])
-
-            flat_vqa_list.append({
-                "image_path": image_path,
-                "question": question,
-                "choices_with_letters": choices_with_letters,
-                "correct_letter": correct_letter,
-                "object_concept": item['object_concept'],
-                "pair_type": pair_type
-            })
-
-    print(f"Loaded {len(flat_vqa_list)} individual VQA samples.")
-    return flat_vqa_list
-
 def load_pope_data(split="test"):
     dataset = load_dataset("lmms-lab/POPE", split=split)
 

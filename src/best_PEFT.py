@@ -34,9 +34,13 @@ param_datas = {
     ("gemma3_4b", "lora", "openworld", True): "sim_openworld_gemma3_4b_lora_c_0.4_e_19_t_0_acc_99_seed_13.pt",
 }
 
-vqa_loras = {
-    ("phi", "lora", "openworld", "gqa_c_0.4"): "sim_gqa_phi_lora_c_0.4_e_0_acc_8819_seed_941.pt",
-    ("phi", "lora", "openworld", "gqa_c_0.1"): "sim_gqa_phi_lora_c_0.1_e_0_acc_9873_seed_952.pt",
-    ("phi", "lora", "openworld", "gqa_c_0.01"): "sim_gqa_phi_lora_c_0.01_e_0_acc_9728_seed_1012.pt",
-    ("phi", "lora", "openworld", "gqa_nt"): "sim_gqa_phi_lora_c_0.0_e_0_acc_9847_seed_7894.pt",
+c_scan_phi_loras = {
+    ("phi", "lora", "hoi", "c=0.0"): "sim_hoi_phi_lora_c_0.0_e_1_t_0_acc_78_84_75_79_seed_123.pt",
+    ("phi", "lora", "hoi", "c=0.025"): "sim_hoi_phi_lora_c_0.025_e_1_t_0_acc_78_84_76_79_seed_123.pt",
+    ("phi", "lora", "hoi", "c=0.05"): "sim_hoi_phi_lora_c_0.05_e_1_t_0_acc_79_84_77_78_seed_123.pt",
+    ("phi", "lora", "hoi", "c=0.1"): "sim_hoi_phi_lora_c_0.1_e_1_t_0_acc_80_78_75_78_seed_123.pt",
+    ("phi", "lora", "hoi", "c=0.2"): "sim_hoi_phi_lora_c_0.2_e_1_t_0_acc_78_81_74_75_seed_123.pt",
+    ("phi", "lora", "hoi", "c=0.4"): "sim_hoi_phi_lora_c_0.4_e_1_t_0_acc_79_82_79_81_seed_123.pt",
+    ("phi", "lora", "hoi", "c=0.8"): "sim_hoi_phi_lora_c_0.8_e_0_t_0_acc_82_80_75_79_seed_123.pt",
+    ("phi", "lora", "hoi", "c=1.6"): "sim_hoi_phi_lora_c_1.6_e_2_t_0_acc_79_81_80_76_seed_123.pt",
 }

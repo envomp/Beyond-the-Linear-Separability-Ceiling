@@ -6,7 +6,7 @@ from transformers import GenerationConfig
 from PIL import Image
 from scripts.eval_similarity import evaluate_pairs_b, evaluate_pairs_s
 from processor import *
-from best_PEFT import param_datas, vqa_loras
+from best_PEFT import param_datas, c_scan_phi_loras
 
 
 def eval_similarity(model, learnable_embedding_location, dataset, sim, layer, base_prompt=interleaved_prompt, cross_domain=False, no_vision=False, sim_n="_b"):
@@ -28,18 +28,17 @@ def eval_similarity(model, learnable_embedding_location, dataset, sim, layer, ba
     param_key = (model, learnable_embedding_location, load_dataset, sim)
     if param_key in param_datas.keys():
         param_data = torch.load(PEFT_PATH + param_datas[param_key], weights_only=True)
-    elif param_key in vqa_loras.keys():
-        param_data = torch.load(PEFT_PATH + vqa_loras[param_key], weights_only=True)
+    elif param_key in c_scan_phi_loras.keys():
+        param_data = torch.load(PEFT_PATH + c_scan_phi_loras[param_key], weights_only=True)
     param_name = None
 
     resolution = 224
     trainable_prompt_size = 100 if learnable_embedding_location in ["full", "postfix"] else 0
-    trainable_image_size = 336 if learnable_embedding_location in ["vision"] else 0
     tsize = trainable_prompt_size * 2 if learnable_embedding_location == "full" else trainable_prompt_size
     post_dispatch = lora_post_dispatch if learnable_embedding_location == "lora" else lambda x: x
 
     if model == "phi":
-        llm, processor = load_phi_3_5_vision(trainable_prompt_size=tsize, trainable_image_size=trainable_image_size, post_dispatch=post_dispatch)
+        llm, processor = load_phi_3_5_vision(trainable_prompt_size=tsize, post_dispatch=post_dispatch)
         ranges = find_image_token_ranges_phi
         if learnable_embedding_location == "full":
             prompt_fn = lambda x: get_phi_trainable_prompt_full(x, trainable_tokens=trainable_prompt_size, base_prompt=base_prompt)
@@ -48,9 +47,6 @@ def eval_similarity(model, learnable_embedding_location, dataset, sim, layer, ba
         elif learnable_embedding_location == "postfix":
             param_name = "model.vision_embed_tokens.trainable_embeddings"
             prompt_fn = lambda x: get_phi_trainable_prompt(x, trainable_tokens=trainable_prompt_size, base_prompt=base_prompt)
-        elif learnable_embedding_location == "vision":
-            param_name = "model.vision_embed_tokens.img_processor.trainable_embeddings"
-            prompt_fn = lambda x: get_phi_simple_prompt(x, base_prompt=base_prompt)
         elif learnable_embedding_location == "connector":
             prompt_fn = lambda x: get_phi_simple_prompt(x, base_prompt=base_prompt)
     elif model == "pixtral":
@@ -164,6 +160,7 @@ def eval_similarity(model, learnable_embedding_location, dataset, sim, layer, ba
 #     eval_similarity("phi", "lora", "openworld", False, layer, base_prompt=interleaved_prompt, no_vision=True)
 #     eval_similarity("phi", "lora", "openworld", False, layer, base_prompt=labeled_prompt, no_vision=True)
 
-# VQA models
-for model, learnable_embedding_location, dataset, sim in vqa_loras:
+# C scan
+for model, learnable_embedding_location, dataset, sim in c_scan_phi_loras:
     eval_similarity(model, learnable_embedding_location, dataset, sim, -1, base_prompt=interleaved_prompt)
+    eval_similarity(model, learnable_embedding_location, dataset, sim, -1, base_prompt=labeled_prompt)

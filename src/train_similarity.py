@@ -202,6 +202,7 @@ for epoch in range(num_epochs):
         if param.requires_grad:
             state_tensors[name] = param
             print(f"> Will save {name}, dtype={param.dtype}, shape:{param.data.shape} ...")
-    filename = result_dir + f"sim_{dataset}_{model}_{learnable_embedding_location}_c_{cl_scaling}_e_{epoch}_t_{trainable_prompt_size}_acc_{"_".join([str(x) for x in correct])}_seed_{seed}.pt"
+    _schedule = "cl" if contrastive_schedule == "cosinel" else contrastive_schedule[0]
+    filename = result_dir + f"sim_{dataset}_{model}_{learnable_embedding_location}_{_schedule}_{cl_scaling}_e_{epoch}_t_{trainable_prompt_size}_acc_{"_".join([str(x) for x in correct])}_seed_{seed}.pt"
     torch.save(state_tensors, filename)
     print(f"Saving state_dict to '{filename}' with accuracy: {correct} and loss: {round(total_loss / (len(train) / batch_size), 6)}")

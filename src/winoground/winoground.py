@@ -4,9 +4,9 @@ from scripts.conf import *
 from scripts.hf_models import load_phi_3_5_vision, inference, lora_post_dispatch, load_weights, load_pixtral_12B, load_gemma3_4B
 from datasets import load_dataset
 from tqdm import tqdm
+from best_PEFT import c_scan_phi_loras
 
-
-def eval_image_retrieval(model, processor, image_tags, prompt_template):
+def eval_image_retrieval(model, processor, image_tags, prompt_template, log_fn=print):
     dataset = load_dataset("facebook/winoground", split="test")
     image_retrieval_correct = 0
     image_retrieval_results = {}
@@ -39,12 +39,11 @@ def eval_image_retrieval(model, processor, image_tags, prompt_template):
             image_retrieval_results[tag] += 1
 
     image_retrieval_accuracy = (image_retrieval_correct / total_examples) * 100 if total_examples > 0 else 0
-    print("--- Evaluation Results (Image Retrieval) ---")
-    print(f"\nImage retrieval score accuracy: {image_retrieval_accuracy:.2f}% ({image_retrieval_correct}/{total_examples})")
-    print(image_retrieval_results, "\n")
+    log_fn("--- Evaluation Results (Image Retrieval) ---")
+    log_fn(f"\nImage retrieval score accuracy: {image_retrieval_accuracy:.2f}% ({image_retrieval_correct}/{total_examples})")
+    log_fn(image_retrieval_results, "\n")
 
-
-def eval_text_retrieval(model, processor, image_tag, prompt_template):
+def eval_text_retrieval(model, processor, image_tag, prompt_template, log_fn=print):
     dataset = load_dataset("facebook/winoground", split="test")
     text_retrieval_correct = 0
     text_retrieval_results = {}
@@ -78,9 +77,9 @@ def eval_text_retrieval(model, processor, image_tag, prompt_template):
             text_retrieval_results[tag] += 1
 
     text_retrieval_accuracy = (text_retrieval_correct / total_examples) * 100 if total_examples > 0 else 0
-    print("--- Evaluation Results (Text Retrieval) ---")
-    print(f"\nText retrieval score accuracy: {text_retrieval_accuracy:.2f}% ({text_retrieval_correct}/{total_examples})")
-    print(text_retrieval_results, "\n")
+    log_fn("--- Evaluation Results (Text Retrieval) ---")
+    log_fn(f"\nText retrieval score accuracy: {text_retrieval_accuracy:.2f}% ({text_retrieval_correct}/{total_examples})")
+    log_fn(text_retrieval_results, "\n")
 
 
 loras = {
@@ -100,33 +99,37 @@ loras = {
     ("gemma3_4b", "lora", "openworld", False): "sim_openworld_gemma3_4b_lora_c_0.0_e_18_t_0_acc_95_seed_9188.pt",
     ("gemma3_4b", "lora", "openworld", True): "sim_openworld_gemma3_4b_lora_c_0.4_e_19_t_0_acc_99_seed_13.pt",
 }
+loras = c_scan_phi_loras # comment out for wider eval
 
-for model, loc, ds, sim in loras:
-    if model == "phi":
-        prompt_template = lambda user, assistant: f"<|user|> {user} <|end|>\n<|assistant|>\n{assistant}"
-        image_tags = ["<|image_1|>", "<|image_2|>"]
-        load_model = load_phi_3_5_vision
-    elif model == "pixtral":
-        prompt_template = lambda user, assistant: f"<s>[INST] {user} [/INST]\n{assistant}"
-        image_tags = ["[IMG]", "[IMG]"]
-        load_model = load_pixtral_12B
-    elif model == "gemma3_4b":
-        prompt_template = lambda user, assistant: f"<bos><start_of_turn>user\n{user} <end_of_turn>\n<start_of_turn>model\n{assistant}"
-        image_tags = ["<start_of_image>", "<start_of_image>"]
-        load_model = load_gemma3_4B
-    else:
-        raise RuntimeError("unknown model: ", model)
+run_filename = f"results_winoground.txt"
+with open(run_filename, 'a', encoding='utf-8', buffering=1) as f_out:
+    file_logger = lambda *args: f_out.write(" ".join(map(str, args)) + "\n")
 
-    print(f"\n\n model: {model}, loc: {loc}, train_ds: {ds}, train_obj_sim: {sim}")
-    if loc == "lora":
-        llm, processor = load_model(post_dispatch=lora_post_dispatch)
-        print(llm)
-        param_data = torch.load(PEFT_PATH + loras[(model, loc, ds, sim)], weights_only=True)
-        load_weights(llm.eval(), param_data, no_vision=True)
-        eval_text_retrieval(llm, processor, image_tag=image_tags[0], prompt_template=prompt_template)
-        eval_image_retrieval(llm, processor, image_tags=image_tags, prompt_template=prompt_template)
-    else:
-        llm, processor = load_model()
-        eval_text_retrieval(llm.eval(), processor, image_tag=image_tags[0], prompt_template=prompt_template)
-        eval_image_retrieval(llm.eval(), processor, image_tags=image_tags, prompt_template=prompt_template)
-    del llm, processor
+    for model, loc, ds, sim in loras:
+        if model == "phi":
+            prompt_template = lambda user, assistant: f"<|user|> {user} <|end|>\n<|assistant|>\n{assistant}"
+            image_tags = ["<|image_1|>", "<|image_2|>"]
+            load_model = load_phi_3_5_vision
+        elif model == "pixtral":
+            prompt_template = lambda user, assistant: f"<s>[INST] {user} [/INST]\n{assistant}"
+            image_tags = ["[IMG]", "[IMG]"]
+            load_model = load_pixtral_12B
+        elif model == "gemma3_4b":
+            prompt_template = lambda user, assistant: f"<bos><start_of_turn>user\n{user} <end_of_turn>\n<start_of_turn>model\n{assistant}"
+            image_tags = ["<start_of_image>", "<start_of_image>"]
+            load_model = load_gemma3_4B
+        else:
+            raise RuntimeError("unknown model: ", model)
+
+        file_logger(f"\n\n model: {model}, loc: {loc}, train_ds: {ds}, train_obj_sim: {sim}")
+        if loc == "lora":
+            llm, processor = load_model(post_dispatch=lora_post_dispatch)
+            param_data = torch.load(PEFT_PATH + loras[(model, loc, ds, sim)], weights_only=True)
+            load_weights(llm.eval(), param_data, no_vision=True)
+            eval_text_retrieval(llm, processor, image_tag=image_tags[0], prompt_template=prompt_template, log_fn=file_logger)
+            eval_image_retrieval(llm, processor, image_tags=image_tags, prompt_template=prompt_template, log_fn=file_logger)
+        else:
+            llm, processor = load_model()
+            eval_text_retrieval(llm.eval(), processor, image_tag=image_tags[0], prompt_template=prompt_template, log_fn=file_logger)
+            eval_image_retrieval(llm.eval(), processor, image_tags=image_tags, prompt_template=prompt_template, log_fn=file_logger)
+        del llm, processor

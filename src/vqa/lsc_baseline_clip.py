@@ -1,6 +1,6 @@
 from scripts.conf import *
 from transformers import CLIPProcessor, CLIPModel, CLIPTokenizer
-from baseline import load_gqa_contrastive_data, load_hoi_prototype_data, load_aokvqa_data, load_scienceqa_data, load_pope_data
+from baseline import load_hoi_prototype_data, load_aokvqa_data, load_scienceqa_data, load_pope_data
 from PIL import Image
 import torch
 import torch.nn.functional as F
@@ -14,9 +14,7 @@ tokenizer = CLIPTokenizer.from_pretrained(model_id)
 
 DATASET_TO_RUN = "pope"  # aokvqa or gqa or hoi or scienceqa or pope
 
-if DATASET_TO_RUN == "gqa":
-    vqa_dataset = load_gqa_contrastive_data("gqa_contrastive_pairs_eval.json", GQA_IMAGE_DIR)
-elif DATASET_TO_RUN == "aokvqa":
+if DATASET_TO_RUN == "aokvqa":
     vqa_dataset = load_aokvqa_data(split="validation")
 elif DATASET_TO_RUN == "hoi":
     vqa_dataset = load_hoi_prototype_data("bongard_hoi_vqa.json", HOI_DATASET_PATH, split_prefix="test")[0]

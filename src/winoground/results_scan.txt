@@ -1,0 +1,196 @@
+
+
+
+
+ model: phi, loc: lora, train_ds: hoi, train_obj_sim: c=0.0
+--- Evaluation Results (Text Retrieval) ---
+
+Text retrieval score accuracy: 13.00% (52/400)
+{'Object': 22, 'Relation': 19, 'Both': 11}
+
+--- Evaluation Results (Image Retrieval) ---
+
+Image retrieval score accuracy: 13.50% (54/400)
+{'Relation': 24, 'Object': 22, 'Both': 8}
+
+
+
+ model: phi, loc: lora, train_ds: hoi, train_obj_sim: c=0.025
+--- Evaluation Results (Text Retrieval) ---
+
+Text retrieval score accuracy: 12.00% (48/400)
+{'Object': 19, 'Relation': 20, 'Both': 9}
+
+--- Evaluation Results (Image Retrieval) ---
+
+Image retrieval score accuracy: 13.50% (54/400)
+{'Object': 22, 'Relation': 24, 'Both': 8}
+
+
+
+ model: phi, loc: lora, train_ds: hoi, train_obj_sim: c=0.05
+--- Evaluation Results (Text Retrieval) ---
+
+Text retrieval score accuracy: 13.00% (52/400)
+{'Object': 24, 'Relation': 19, 'Both': 9}
+
+--- Evaluation Results (Image Retrieval) ---
+
+Image retrieval score accuracy: 11.00% (44/400)
+{'Object': 20, 'Relation': 16, 'Both': 8}
+
+
+
+ model: phi, loc: lora, train_ds: hoi, train_obj_sim: c=0.1
+--- Evaluation Results (Text Retrieval) ---
+
+Text retrieval score accuracy: 12.00% (48/400)
+{'Object': 22, 'Relation': 17, 'Both': 9}
+
+--- Evaluation Results (Image Retrieval) ---
+
+Image retrieval score accuracy: 11.50% (46/400)
+{'Object': 24, 'Relation': 12, 'Both': 10}
+
+
+
+ model: phi, loc: lora, train_ds: hoi, train_obj_sim: c=0.2
+--- Evaluation Results (Text Retrieval) ---
+
+Text retrieval score accuracy: 14.00% (56/400)
+{'Object': 26, 'Relation': 20, 'Both': 10}
+
+--- Evaluation Results (Image Retrieval) ---
+
+Image retrieval score accuracy: 11.00% (44/400)
+{'Object': 23, 'Relation': 12, 'Both': 9}
+
+
+
+ model: phi, loc: lora, train_ds: hoi, train_obj_sim: c=0.4
+--- Evaluation Results (Text Retrieval) ---
+
+Text retrieval score accuracy: 14.00% (56/400)
+{'Object': 27, 'Relation': 19, 'Both': 10}
+
+--- Evaluation Results (Image Retrieval) ---
+
+Image retrieval score accuracy: 10.75% (43/400)
+{'Object': 21, 'Relation': 13, 'Both': 9}
+
+
+
+ model: phi, loc: lora, train_ds: hoi, train_obj_sim: c=0.8
+--- Evaluation Results (Text Retrieval) ---
+
+Text retrieval score accuracy: 9.75% (39/400)
+{'Object': 17, 'Relation': 13, 'Both': 9}
+
+--- Evaluation Results (Image Retrieval) ---
+
+Image retrieval score accuracy: 6.00% (24/400)
+{'Object': 11, 'Relation': 8, 'Both': 5}
+
+
+
+ model: phi, loc: lora, train_ds: hoi, train_obj_sim: c=1.6
+--- Evaluation Results (Text Retrieval) ---
+
+Text retrieval score accuracy: 21.75% (87/400)
+{'Object': 45, 'Relation': 29, 'Both': 13}
+
+--- Evaluation Results (Image Retrieval) ---
+
+Image retrieval score accuracy: 14.00% (56/400)
+{'Relation': 23, 'Object': 23, 'Both': 10}
+
+
+
+ model: phi, loc: lora, train_ds: hoi, train_obj_sim: cl=0.025
+--- Evaluation Results (Text Retrieval) ---
+
+Text retrieval score accuracy: 17.25% (69/400)
+{'Object': 38, 'Relation': 19, 'Both': 12}
+
+--- Evaluation Results (Image Retrieval) ---
+
+Image retrieval score accuracy: 11.50% (46/400)
+{'Relation': 22, 'Object': 18, 'Both': 6}
+
+
+
+ model: phi, loc: lora, train_ds: hoi, train_obj_sim: cl=0.05
+--- Evaluation Results (Text Retrieval) ---
+
+Text retrieval score accuracy: 21.00% (84/400)
+{'Object': 40, 'Relation': 32, 'Both': 12}
+
+--- Evaluation Results (Image Retrieval) ---
+
+Image retrieval score accuracy: 11.75% (47/400)
+{'Relation': 22, 'Object': 16, 'Both': 9}
+
+
+
+ model: phi, loc: lora, train_ds: hoi, train_obj_sim: cl=0.1
+--- Evaluation Results (Text Retrieval) ---
+
+Text retrieval score accuracy: 22.00% (88/400)
+{'Object': 40, 'Relation': 35, 'Both': 13}
+
+--- Evaluation Results (Image Retrieval) ---
+
+Image retrieval score accuracy: 13.50% (54/400)
+{'Relation': 23, 'Object': 22, 'Both': 9}
+
+
+
+ model: phi, loc: lora, train_ds: hoi, train_obj_sim: cl=0.2
+--- Evaluation Results (Text Retrieval) ---
+
+Text retrieval score accuracy: 25.25% (101/400)
+{'Object': 48, 'Relation': 38, 'Both': 15}
+
+--- Evaluation Results (Image Retrieval) ---
+
+Image retrieval score accuracy: 11.25% (45/400)
+{'Relation': 19, 'Object': 18, 'Both': 8}
+
+
+
+ model: phi, loc: lora, train_ds: hoi, train_obj_sim: cl=0.4
+--- Evaluation Results (Text Retrieval) ---
+
+Text retrieval score accuracy: 22.50% (90/400)
+{'Object': 46, 'Relation': 32, 'Both': 12}
+
+--- Evaluation Results (Image Retrieval) ---
+
+Image retrieval score accuracy: 17.25% (69/400)
+{'Relation': 35, 'Object': 22, 'Both': 12}
+
+
+
+ model: phi, loc: lora, train_ds: hoi, train_obj_sim: cl=0.8
+--- Evaluation Results (Text Retrieval) ---
+
+Text retrieval score accuracy: 21.75% (87/400)
+{'Object': 41, 'Relation': 34, 'Both': 12}
+
+--- Evaluation Results (Image Retrieval) ---
+
+Image retrieval score accuracy: 14.75% (59/400)
+{'Relation': 24, 'Object': 25, 'Both': 10}
+
+
+
+ model: phi, loc: lora, train_ds: hoi, train_obj_sim: cl=1.6
+--- Evaluation Results (Text Retrieval) ---
+
+Text retrieval score accuracy: 18.25% (73/400)
+{'Object': 37, 'Relation': 25, 'Both': 11}
+
+--- Evaluation Results (Image Retrieval) ---
+
+Image retrieval score accuracy: 9.75% (39/400)
+{'Relation': 21, 'Object': 13, 'Both': 5}
