@@ -11,11 +11,9 @@ os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'expandable_segments:True'
 
 from huggingface_hub import login
 
-# login(token="hf_...")
+login(token="hf_...")
 
 HOI_DATASET_PATH = "/home/e/Downloads/bongard article/hake/"
-OPENWORLD_DATASET_PATH = "/home/e/Downloads/bongard article/images/"
+OPENWORLD_DATASET_PATH = "/home/e/Downloads/bongard article/"
 BONGARD_RESULT_DIR = "/home/e/Downloads/bongard article/bongard_PEFT/"
 PEFT_PATH = "/home/e/Downloads/bongard article/bongard_PEFT/"
-
-GQA_IMAGE_DIR = "/home/e/Downloads/allImages/images"

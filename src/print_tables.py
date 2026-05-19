@@ -1,3 +1,5 @@
+import os
+
 from scipy.stats import chi2_contingency, norm
 import numpy as np
 import pandas as pd
@@ -175,6 +177,43 @@ def splits_PEFT(items_per_split=200, splits=4):
                     path = f'../result/PEFT/{file.replace("{model}", model).replace("{dataset}", dataset).replace("{peft}", peft)}'
                     cor_vals = split(extract_correctness(path), items_per_split, splits)
                     gen_accuracies[1 + i].append([accuracy(x) for x in cor_vals])
+    return accuracies
+
+def splits_PEFT_noise(items_per_split=200, splits=4):
+    models = ["phi"]
+    datasets = ["hoi"]
+    pefts = ["None", "lora", "sim_lora"]
+    metric_mapping = {
+        "similarity_vision": "similarity_vision",
+        "similarity_final": "similarity_final",
+        "eval": "gen"
+    }
+    noises = [0.0, 0.2, 0.4, 0.6, 0.8, 1.0]
+
+    columns = pd.MultiIndex.from_product([list(metric_mapping.values()), pefts], names=["Metric", "PEFT"])
+    accuracies = {}
+    for model in models:
+        for dataset in datasets:
+            df = pd.DataFrame(index=noises, columns=columns)
+            df.index.name = "Noise"
+
+            for noise in noises:
+                noise_str = f"{noise:.1f}"
+
+                for peft in pefts:
+                    for file_metric, display_metric in metric_mapping.items():
+
+                        filename = f"{model}_{dataset}_{peft}_{file_metric}+noise={noise_str}.txt"
+                        path = os.path.join("../result/PEFT/phi_noise", filename)
+                        cor_vals = extract_correctness(path)
+                        splits_data = split(cor_vals, items_per_split, splits)
+                        split_accs = [calculate_accuracy(x)['mean'] for x in splits_data]
+                        mean_acc = np.mean(split_accs)
+                        std_acc = np.std(split_accs)
+                        df.at[noise, (display_metric, peft)] = f"{mean_acc:.1f} ± {std_acc:.1f}"
+
+            accuracies[f"{model}_{dataset}"] = df
+
     return accuracies
 
 
@@ -629,6 +668,93 @@ def hoi_by_split_table_latex(accuracies: dict) -> str:
     ])
     return '\n'.join(latex_parts)
 
+def noise_table_latex(accuracies: dict) -> str:
+    noises = [0.0, 0.2, 0.4, 0.6, 0.8, 1.0]
+
+    def format_row(data_list: list) -> str:
+        formatted = []
+        for v in data_list:
+            if v == "N/A" or pd.isna(v):
+                formatted.append("-")
+            else:
+                v_latex = str(v).replace('±', r'\pm')
+                formatted.append(f"${v_latex}$")
+        return " & ".join(formatted)
+
+    latex_parts = [
+        r'\begin{table}[htbp]',
+        r'    \centering',
+        r'    \caption{Performance on HOI under varying noise levels}',
+        r'    \label{tab:hoi_noise_comparison}',
+        r'    \resizebox{\textwidth}{!}{',
+        r'        \begin{tabular}{@{}l l l c c c c c c@{}}',
+        r'            \toprule',
+        r'''            Model
+            & Method
+            & Objective
+            & \begin{tabular}[c]{@{}c@{}}Noise\\0.0\end{tabular}
+            & \begin{tabular}[c]{@{}c@{}}Noise\\0.2\end{tabular}
+            & \begin{tabular}[c]{@{}c@{}}Noise\\0.4\end{tabular}
+            & \begin{tabular}[c]{@{}c@{}}Noise\\0.6\end{tabular}
+            & \begin{tabular}[c]{@{}c@{}}Noise\\0.8\end{tabular}
+            & \begin{tabular}[c]{@{}c@{}}Noise\\1.0\end{tabular} \\''',
+        r'            \midrule'
+    ]
+
+    model_map = {
+        'phi': 'Phi',
+        'pixtral': 'Pixtral',
+        'gemma3_4b': 'Gemma3 4B'
+    }
+
+    row_definitions = [
+        ('Baseline gen.', '', 'gen', 'None'),
+        ('Baseline sim. (vis)', '', 'similarity_vision', 'None'),
+        ('Baseline sim. (fin)', '', 'similarity_final', 'None'),
+        ('LoRA gen.', r'$\mathcal{L}_{\text{NT}}$', 'gen', 'lora'),
+        ('LoRA sim. (vis)', r'$\mathcal{L}_{\text{NT}}$', 'similarity_vision', 'lora'),
+        ('LoRA sim. (fin)', r'$\mathcal{L}_{\text{NT}}$', 'similarity_final', 'lora'),
+        ('Sim-LoRA gen.', r'$\mathcal{L}_{\text{combined}}$', 'gen', 'sim_lora'),
+        ('Sim-LoRA sim. (vis)', r'$\mathcal{L}_{\text{combined}}$', 'similarity_vision', 'sim_lora'),
+        ('Sim-LoRA sim. (fin)', r'$\mathcal{L}_{\text{combined}}$', 'similarity_final', 'sim_lora'),
+    ]
+
+    for model_key, model_name in model_map.items():
+        dict_key = f"{model_key}_hoi"
+
+        if dict_key not in accuracies:
+            continue
+
+        df = accuracies[dict_key]
+
+        for i, (method, objective, metric, peft) in enumerate(row_definitions):
+            vals = [df.at[n, (metric, peft)] for n in noises]
+            vals_str = format_row(vals)
+            method_padded = f'{method:<20}'
+            objective_padded = f'{objective:<33}'
+
+            if i == 0:
+                line = fr'            {model_name:<10}'
+            else:
+                line = ' ' * 22
+
+            line += fr' & {method_padded} & {objective_padded} & {vals_str} \\'
+            latex_parts.append(line)
+
+        latex_parts.append(r'            \midrule')
+
+    if latex_parts[-1] == r'            \midrule':
+        latex_parts.pop()
+
+    latex_parts.extend([
+        r'            \bottomrule',
+        r'        \end{tabular}',
+        r'    }',
+        r'\end{table}'
+    ])
+
+    return '\n'.join(latex_parts)
+
 
 def peft_table_latex(accuracies, methods):
     method_display_names = ["Direct baseline"] + methods
@@ -813,3 +939,7 @@ plot(scores)
 # accuracies = splits_PEFT()
 # print(accuracies)
 # print(hoi_by_split_table_latex(accuracies))
+
+# accuracies = splits_PEFT_noise()
+# print(accuracies)
+# print(noise_table_latex(accuracies))

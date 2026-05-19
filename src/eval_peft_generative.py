@@ -1,11 +1,11 @@
 from scripts.conf import *
 from scripts.hf_models import load_phi_3_5_vision, load_pixtral_12B, load_gemma3_4B
-from scripts.hf_models import inference, load_weights, lora_post_dispatch
-from processor import *
-from best_PEFT import param_datas, c_scan_phi_loras
+from scripts.hf_models import inference, load_weights, lora_post_dispatch, get_noise_injection_hook
+from src.processor import *
+from src.best_PEFT import param_datas, c_scan_phi_loras
 
 
-def eval_generative(model, learnable_embedding_location, dataset, sim, base_prompt=interleaved_prompt, cross_domain=False, no_vision=False):
+def eval_generative(model, learnable_embedding_location, dataset, sim, base_prompt=interleaved_prompt, cross_domain=False, no_vision=False, noise=None):
     if dataset == "hoi":
         dataset_path = HOI_DATASET_PATH
     elif dataset == "openworld":
@@ -26,6 +26,8 @@ def eval_generative(model, learnable_embedding_location, dataset, sim, base_prom
         param_data = torch.load(PEFT_PATH + param_datas[param_key], weights_only=True)
     elif param_key in c_scan_phi_loras.keys():
         param_data = torch.load(PEFT_PATH + c_scan_phi_loras[param_key], weights_only=True)
+    else:
+        param_data = None
     param_name = None
 
     resolution = 224
@@ -35,9 +37,10 @@ def eval_generative(model, learnable_embedding_location, dataset, sim, base_prom
 
     if model == "phi":
         llm, processor = load_phi_3_5_vision(trainable_prompt_size=tsize, post_dispatch=post_dispatch)
+        vision_encoder = llm.model.model.vision_embed_tokens.img_projection if learnable_embedding_location == "lora" else llm.model.vision_embed_tokens.img_projection
         if learnable_embedding_location == "full":
             prompt_fn = lambda x: get_phi_trainable_prompt_full(x, trainable_tokens=trainable_prompt_size, base_prompt=base_prompt)
-        elif learnable_embedding_location == "lora":
+        elif learnable_embedding_location == "lora" or learnable_embedding_location is None:
             prompt_fn = lambda x: get_phi_simple_prompt(x, base_prompt=base_prompt)
         elif learnable_embedding_location == "postfix":
             param_name = "model.vision_embed_tokens.trainable_embeddings"
@@ -49,36 +52,41 @@ def eval_generative(model, learnable_embedding_location, dataset, sim, base_prom
             prompt_fn = lambda x: get_phi_simple_prompt(x, base_prompt=base_prompt)
     elif model == "pixtral":
         llm, processor = load_pixtral_12B(trainable_prompt_size=tsize, post_dispatch=post_dispatch)
+        vision_encoder = llm.model.multi_modal_projector if learnable_embedding_location == "lora" else llm.multi_modal_projector
         if learnable_embedding_location == "full":
             param_name = "language_model.model.embed_tokens.trainable_embeddings"
             prompt_fn = lambda x: get_pixtral_trainable_prompt_full(x, trainable_tokens=trainable_prompt_size, base_prompt=base_prompt)
         elif learnable_embedding_location == "postfix":
             param_name = "language_model.model.embed_tokens.trainable_embeddings"
             prompt_fn = lambda x: get_pixtral_trainable_prompt(x, trainable_prompt_size)
-        elif learnable_embedding_location == "lora":
+        elif learnable_embedding_location == "lora" or learnable_embedding_location is None:
             prompt_fn = lambda x: get_pixtral_simple_prompt(x, base_prompt=base_prompt)
     elif model == "gemma3_4b":
         llm, processor = load_gemma3_4B(trainable_prompt_size=tsize, post_dispatch=post_dispatch)
+        vision_encoder = llm.model.multi_modal_projector if learnable_embedding_location == "lora" else llm.multi_modal_projector
         if learnable_embedding_location == "full":
             prompt_fn = lambda x: get_gemma_trainable_prompt_full(x, trainable_tokens=trainable_prompt_size, base_prompt=base_prompt)
         elif learnable_embedding_location == "postfix":
             prompt_fn = lambda x: get_gemma_trainable_prompt(x, trainable_prompt_size)
-        elif learnable_embedding_location == "lora":
+        elif learnable_embedding_location == "lora" or learnable_embedding_location is None:
             prompt_fn = lambda x: get_gemma_simple_prompt(x, base_prompt=base_prompt)
     else:
         raise ValueError(f"Unknown model type: {model}")
 
     load_weights(llm, param_data, param_name=param_name, no_vision=no_vision)
+    if noise is not None:
+        handle = vision_encoder.register_forward_hook(get_noise_injection_hook(noise_level=noise))
     cat_text, _, _ = get_cat_text_label(processor)
 
     _, _, test = get_ds(dataset)
 
-    _sim = ('_sim' if sim else '') if isinstance(type, bool) else sim
+    _sim = ('_sim' if sim else '') if isinstance(sim, bool) else sim
     _no_vision = '_no_vision' if no_vision else ''
     _cross_domain = '_cross_domain' if cross_domain else ''
     _res = f"_{resolution}" if resolution != 224 else ""
     _promt = f"_{base_prompt.__name__}" if base_prompt.__name__ != "interleaved_prompt" else ""
-    run_filename = f"{model}{_cross_domain}_{dataset}{_sim}_{learnable_embedding_location}{_no_vision}{_res}_eval{_promt}.txt"
+    _noise = f"+noise={noise}" if noise is not None else ""
+    run_filename = f"{model}{_cross_domain}_{dataset}{_sim}_{learnable_embedding_location}{_no_vision}{_res}_eval{_promt}{_noise}.txt"
     full_file_path = os.path.join(PEFT_PATH, run_filename)
 
     with open(full_file_path, 'w', encoding='utf-8', buffering=1) as f_out:
@@ -132,7 +140,13 @@ def eval_generative(model, learnable_embedding_location, dataset, sim, base_prom
 #     if learnable_embedding_location in ["postfix", "full", "lora"]:
 #         eval_generative(model, learnable_embedding_location, dataset, sim, base_prompt=interleaved_prompt, cross_domain=True)
 
-# C scan
-for model, learnable_embedding_location, dataset, sim in c_scan_phi_loras:
-    eval_generative(model, learnable_embedding_location, dataset, sim, base_prompt=interleaved_prompt)
-    eval_generative(model, learnable_embedding_location, dataset, sim, base_prompt=labeled_prompt)
+# # C scan
+# for model, learnable_embedding_location, dataset, sim in c_scan_phi_loras:
+#     eval_generative(model, learnable_embedding_location, dataset, sim, base_prompt=interleaved_prompt)
+#     eval_generative(model, learnable_embedding_location, dataset, sim, base_prompt=labeled_prompt)
+
+# # noise robustness
+# for noise in range(0, 11, 2):
+#     eval_generative("phi", None, "hoi", False, base_prompt=interleaved_prompt, noise=noise/10)
+#     eval_generative("phi", "lora", "hoi", False, base_prompt=interleaved_prompt, noise=noise/10)
+#     eval_generative("phi", "lora", "hoi", True, base_prompt=interleaved_prompt, noise=noise/10)

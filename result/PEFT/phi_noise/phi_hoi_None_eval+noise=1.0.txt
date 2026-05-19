@@ -1,0 +1,841 @@
+experiment run details:
+  dataset: hoi
+  model: phi hoi None
+  path: /gpfs/mariana/home/envomp/bongard/hake/
+---------------------------------------
+  test split name: test_seen_obj_seen_act
+---------------------------------------
+
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got: AI'mation<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: AI'monger<|end|><|endoftext|> | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got: A person's<|end|><|endoftext|> | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got: AI'much of the same-based | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got: AI'monger<|end|><|endoftext|> | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got: AI'monger<|end|><|endoftext|> | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got: A person's<|end|><|endoftext|> | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got: AI'much of the same-based | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got: A person's<|end|><|endoftext|> | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got: A person's<|end|><|endoftext|> | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got: AI'0<|end|><|endoftext|> | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got: AI'mation<|end|><|endoftext|> | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got: AI'mation<|end|><|endoftext|> | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got: AI'monger<|end|><|endoftext|> | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+---------------------------------------
+Summary for Split 'test_seen_obj_seen_act':
+ results: {'correct': {'cat_1': 0, 'cat_2': 0}, 'incorrect': {'cat_1': 100, 'cat_2': 100}}
+ accuracy: 0.00%
+
+---------------------------------------
+  test split name: test_seen_obj_unseen_act
+---------------------------------------
+
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got: AI'monger<|end|><|endoftext|> | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got: A person's<|end|><|endoftext|> | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got: AI'much of the same-based | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got: AI'much of the same-based | expected: cat_1 | equals: False
+got: AI'monger<|end|><|endoftext|> | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got: A person's<|end|><|endoftext|> | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got: AI'much of the same-based | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got: AI'monger<|end|><|endoftext|> | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got: AI'much of the same-based | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got: AI'monger<|end|><|endoftext|> | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got: A person's<|end|><|endoftext|> | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got: AI'much of the same-based | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got: AI'monger<|end|><|endoftext|> | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got: A person'0<|end|><|endoftext|> | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got: AI'mation<|end|><|endoftext|> | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got: AI'monger<|end|><|endoftext|> | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got: AI'much of the same-based | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+---------------------------------------
+Summary for Split 'test_seen_obj_unseen_act':
+ results: {'correct': {'cat_1': 0, 'cat_2': 0}, 'incorrect': {'cat_1': 200, 'cat_2': 200}}
+ accuracy: 0.00%
+
+---------------------------------------
+  test split name: test_unseen_obj_seen_act
+---------------------------------------
+
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got: A person's<|end|><|endoftext|> | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got: A person's<|end|><|endoftext|> | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got: A person's<|end|><|endoftext|> | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got: AI'mation<|end|><|endoftext|> | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got: A person's<|end|><|endoftext|> | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got: AI'much of the same-based | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got: AI'mong<|end|><|endoftext|> | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got: A person's<|end|><|endoftext|> | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got: A person's<|end|><|endoftext|> | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got: A person's<|end|><|endoftext|> | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got: A person's<|end|><|endoftext|> | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got: AI's<|end|><|endoftext|> | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got: A person's<|end|><|endoftext|> | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got: A person's<|end|><|endoftext|> | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+---------------------------------------
+Summary for Split 'test_unseen_obj_seen_act':
+ results: {'correct': {'cat_1': 0, 'cat_2': 0}, 'incorrect': {'cat_1': 300, 'cat_2': 300}}
+ accuracy: 0.00%
+
+---------------------------------------
+  test split name: test_unseen_obj_unseen_act
+---------------------------------------
+
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got: AI'mation<|end|><|endoftext|> | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got: AI'mation<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: AI'much of the same-based | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got: AI'monger<|end|><|endoftext|> | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got: AI'mong<|end|><|endoftext|> | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got: AI'mongsthink to the | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got: AI'much of the same-based | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got: A person's<|end|><|endoftext|> | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got: A person's<|end|><|endoftext|> | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got: A person's<|end|><|endoftext|> | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+got:  | expected: cat_2 | equals: False
+got:  | expected: cat_1 | equals: False
+---------------------------------------
+Summary for Split 'test_unseen_obj_unseen_act':
+ results: {'correct': {'cat_1': 0, 'cat_2': 0}, 'incorrect': {'cat_1': 400, 'cat_2': 400}}
+ accuracy: 0.00%
+
+---------------------------------------

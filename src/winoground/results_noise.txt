@@ -1,0 +1,25 @@
+ model: phi, loc: None, train_ds: None, train_obj_sim: None
+t_noise_scores: {0.0: ({'Object': 30, 'Relation': 22, 'Both': 15},)}
+t_noise_scores: {0.2: ({'Object': 30, 'Relation': 23, 'Both': 14},)}
+t_noise_scores: {0.4: ({'Object': 34, 'Relation': 25, 'Both': 15},)}
+t_noise_scores: {0.6: ({'Object': 31, 'Relation': 16, 'Both': 12},)}
+t_noise_scores: {0.8: ({'Object': 5, 'Both': 1, 'Relation': 2},)}
+t_noise_scores: {1.0: ({'Object': 1},)}
+
+
+ model: phi, loc: lora, train_ds: hoi, train_obj_sim: False
+t_noise_scores: {0.0: ({'Object': 37, 'Relation': 23, 'Both': 13},)}
+t_noise_scores: {0.2: ({'Object': 37, 'Relation': 23, 'Both': 14},)}
+t_noise_scores: {0.4: ({'Object': 38, 'Relation': 25, 'Both': 15},)}
+t_noise_scores: {0.6: ({'Object': 23, 'Relation': 20, 'Both': 10},)}
+t_noise_scores: {0.8: ({'Object': 7, 'Relation': 6, 'Both': 1},)}
+t_noise_scores: {1.0: ({'Object': 2},)}
+
+
+ model: phi, loc: lora, train_ds: hoi, train_obj_sim: True
+t_noise_scores: {0.0: ({'Object': 52, 'Relation': 50, 'Both': 15},)}
+t_noise_scores: {0.2: ({'Object': 53, 'Relation': 51, 'Both': 14},)}
+t_noise_scores: {0.4: ({'Object': 52, 'Relation': 46, 'Both': 13},)}
+t_noise_scores: {0.6: ({'Object': 36, 'Relation': 32, 'Both': 10},)}
+t_noise_scores: {0.8: ({'Object': 14, 'Relation': 14, 'Both': 6},)}
+t_noise_scores: {1.0: ({'Object': 6, 'Relation': 4, 'Both': 2},)}

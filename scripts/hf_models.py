@@ -12,7 +12,7 @@ def load_weights(llm, param_data, param_name=None, no_vision=False):
             continue
         if isinstance(param_data, dict):
             for k, v in param_data.items():
-                if name == k and param.data.shape == v.shape:
+                if name.replace(".model", "") == k.replace(".model", "") and param.data.shape == v.shape:
                     param.data.copy_(v)
                     print(f"Successfully loaded parameter '{k}' of shape '{v.shape}' with data {v.flatten()[:5]} ...")
                     break
@@ -39,6 +39,16 @@ def resize_images(images, longest_edge=224):
 
     return resized_images
 
+def get_noise_injection_hook(noise_level: float):
+    def hook(module, input, output):
+        embeds = output[0] if isinstance(output, tuple) else output
+        raw_noise = torch.randn_like(embeds)
+
+        noisy_embeds = ((1.0 - noise_level) * embeds) + (noise_level * raw_noise)
+        if isinstance(output, tuple):
+            return (noisy_embeds,) + output[1:]
+        return noisy_embeds
+    return hook
 
 def inference(model, processor, prompt, urls=[], images=[], max_tokens=1000, num_return_sequences=1, resize=False, skip_special=False, skip_input=True, force_cuda=False):
     images = [Image.open(url).convert("RGB") for url in urls] if urls else images

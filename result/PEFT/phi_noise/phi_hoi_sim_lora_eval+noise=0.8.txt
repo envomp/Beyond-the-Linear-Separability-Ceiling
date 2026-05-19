@@ -1,0 +1,841 @@
+experiment run details:
+  dataset: hoi
+  model: phi hoi lora
+  path: /gpfs/mariana/home/envomp/bongard/hake/
+---------------------------------------
+  test split name: test_seen_obj_seen_act
+---------------------------------------
+
+got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat_1><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat_1><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1</format><|end|> | expected: cat_2 | equals: False
+got: <cat> cat_1</format> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat>1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat_1><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|end|><|endoftext|> | expected: cat_1 | equals: True
+got: cat_2<|end|><|endoftext|> | expected: cat_2 | equals: True
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|end|><|endoftext|> | expected: cat_1 | equals: True
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: The image shows a person riding a bicy | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat>1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|end|><|endoftext|> | expected: cat_1 | equals: True
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|endoftext|> | expected: cat_1 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|end|><|endoftext|> | expected: cat_1 | equals: True
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat>cat_1</category><|end|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1</category> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat_1><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1</format><|end|> | expected: cat_2 | equals: False
+got: <cat_1><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat_1><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat_1><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_2<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat_1><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat_1><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: The image shows a person holding a banana. | expected: cat_2 | equals: False
+got: The image shows a person holding a banana, | expected: cat_1 | equals: False
+got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: The image shows a group of people hugging | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1</format><|end|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat_1><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: The image shows a man and a woman in an | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: <cat_1><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|end|><|endoftext|> | expected: cat_1 | equals: True
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_2<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: The image shows a man and a woman in an | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat_1><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+---------------------------------------
+Summary for Split 'test_seen_obj_seen_act':
+ results: {'correct': {'cat_1': 16, 'cat_2': 8}, 'incorrect': {'cat_1': 84, 'cat_2': 92}}
+ accuracy: 12.00%
+
+---------------------------------------
+  test split name: test_seen_obj_unseen_act
+---------------------------------------
+
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat>1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
+got: <cat_1><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: <cat> cat_2<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1.<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: The image shows two individuals shaking hands. Based | expected: cat_2 | equals: False
+got: The image shows two individuals in an embrace, | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: The image shows a man and a woman in a | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: The image shows a person with a bird in the | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_1.<|end|><|endoftext|> | expected: cat_1 | equals: True
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: The image shows a person holding a knife in | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat_1><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat>'.<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1</format> | expected: cat_1 | equals: False
+got: <cat>1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat>cat_2</category><|end|> | expected: cat_2 | equals: False
+got: <cat> cat_1</format> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat_1><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|end|><|endoftext|> | expected: cat_1 | equals: True
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat>'.replace('cat_1', | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1</format> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat_1><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat_1><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat_1><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat_1><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+---------------------------------------
+Summary for Split 'test_seen_obj_unseen_act':
+ results: {'correct': {'cat_1': 23, 'cat_2': 12}, 'incorrect': {'cat_1': 177, 'cat_2': 188}}
+ accuracy: 8.75%
+
+---------------------------------------
+  test split name: test_unseen_obj_seen_act
+---------------------------------------
+
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: <cat_1><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|end|><|endoftext|> | expected: cat_1 | equals: True
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: The image shows a person surfing on a | expected: cat_2 | equals: False
+got: cat_1<|end|><|endoftext|> | expected: cat_1 | equals: True
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: The image shows a person holding a surfboard | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: The image shows three men standing on a beach holding | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|end|><|endoftext|> | expected: cat_1 | equals: True
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat_1><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: The image shows two people, one of whom is | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_2<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: The image shows a person holding a knife and | expected: cat_1 | equals: False
+got: <cat_1><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|end|><|endoftext|> | expected: cat_1 | equals: True
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: <cat> cat_1<|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: <cat_1><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: <cat> cat_2<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat_1><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat_1><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: The image shows a person surfing on a | expected: cat_2 | equals: False
+got: cat_1<|end|><|endoftext|> | expected: cat_1 | equals: True
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|end|><|endoftext|> | expected: cat_1 | equals: True
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: The image shows a person surfing on a | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: The image shows two people, one of whom is | expected: cat_1 | equals: False
+got: cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|end|><|endoftext|> | expected: cat_1 | equals: True
+got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|end|><|endoftext|> | expected: cat_1 | equals: True
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat>1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|end|><|endoftext|> | expected: cat_1 | equals: True
+got: <cat_1><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|end|><|endoftext|> | expected: cat_1 | equals: True
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: <cat_2><|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_2<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: <cat> cat_2<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_2<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
+---------------------------------------
+Summary for Split 'test_unseen_obj_seen_act':
+ results: {'correct': {'cat_1': 52, 'cat_2': 25}, 'incorrect': {'cat_1': 248, 'cat_2': 275}}
+ accuracy: 12.83%
+
+---------------------------------------
+  test split name: test_unseen_obj_unseen_act
+---------------------------------------
+
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat_1><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1</format> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: <cat> cat_1</format> | expected: cat_1 | equals: False
+got: <cat_1><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat_1><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat_1><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat_1><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat>1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat_1><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat_1><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat_1><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat_1><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_2<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat_1><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: cat_1<|end|><|endoftext|> | expected: cat_1 | equals: True
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|end|><|endoftext|> | expected: cat_1 | equals: True
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat_1><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|end|><|endoftext|> | expected: cat_1 | equals: True
+got: cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat_1><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_1.<|end|><|endoftext|> | expected: cat_1 | equals: True
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: <cat> cat_1<|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: <cat_1><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat><|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_2<|endoftext|> | expected: cat_2 | equals: True
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_2<|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: cat_1<|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: <cat><|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+got: <cat> cat_2<|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|endoftext|> | expected: cat_1 | equals: True
+got: cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: cat_1<|end|><|endoftext|> | expected: cat_1 | equals: True
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_2 | equals: False
+got: <cat> cat_1<|end|><|endoftext|> | expected: cat_1 | equals: False
+---------------------------------------
+Summary for Split 'test_unseen_obj_unseen_act':
+ results: {'correct': {'cat_1': 69, 'cat_2': 36}, 'incorrect': {'cat_1': 331, 'cat_2': 364}}
+ accuracy: 13.12%
+
+---------------------------------------
